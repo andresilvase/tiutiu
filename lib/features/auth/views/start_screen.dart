@@ -32,67 +32,69 @@ class _StartScreenState extends State<StartScreen> {
               ? tiutiuUserController.tiutiuUser.hasAcceptedTerms
               : systemController.properties.hasAcceptedTerms;
 
-          return Stack(
-            children: [
-              ImageCarouselBackground(),
-              Blur(),
-              Positioned(
-                bottom: 16.0.h,
-                right: 0.0.h,
-                left: 0.0.h,
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 300.0.h,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      AutoSizeTexts.autoSizeText32(
-                        textAlign: TextAlign.center,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.white,
-                        AppLocalizations.of(context)!.headline1,
-                        fontSize: 32.0,
-                      ),
-                      SizedBox(height: 24.0.h),
-                      AutoSizeTexts.autoSizeText22(
-                        textAlign: TextAlign.center,
-                        fontWeight: FontWeight.w300,
-                        color: AppColors.white,
-                        AppLocalizations.of(context)!.headline2,
-                        fontSize: 20.0,
-                      ),
-                      Spacer(),
-                      _docButtons(context, hasAcceptedTerms: hasAcceptedTerms),
-                      SizedBox(height: 8.0.h),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: ButtonWide(
-                          text: AppLocalizations.of(context)!.getStarted,
-                          color: AppColors.primary,
-                          onPressed: () async {
-                            if (hasAcceptedTerms) {
-                              Get.toNamed(Routes.authOrHome);
-                              filterController.reset();
-                            } else {
-                              setState(() => hasError = true);
-                            }
-                          },
+          return SafeArea(
+            child: Stack(
+              children: [
+                ImageCarouselBackground(),
+                Blur(),
+                Positioned(
+                  bottom: 16.0.h,
+                  right: 0.0.h,
+                  left: 0.0.h,
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 300.0.h,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        AutoSizeTexts.autoSizeText32(
+                          textAlign: TextAlign.center,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.white,
+                          AppLocalizations.of(context)!.headline1,
+                          fontSize: 32.0,
                         ),
-                      ),
-                    ],
+                        SizedBox(height: 24.0.h),
+                        AutoSizeTexts.autoSizeText22(
+                          textAlign: TextAlign.center,
+                          fontWeight: FontWeight.w300,
+                          color: AppColors.white,
+                          AppLocalizations.of(context)!.headline2,
+                          fontSize: 20.0,
+                        ),
+                        Spacer(),
+                        _docButtons(context, hasAcceptedTerms: hasAcceptedTerms),
+                        SizedBox(height: 8.0.h),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: ButtonWide(
+                            text: AppLocalizations.of(context)!.getStarted,
+                            color: AppColors.primary,
+                            onPressed: () async {
+                              if (hasAcceptedTerms) {
+                                Get.toNamed(Routes.authOrHome);
+                                filterController.reset();
+                              } else {
+                                setState(() => hasError = true);
+                              }
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                right: 8.0.w,
-                top: 40.0.h,
-                left: 8.0.w,
-                child: SizedBox(
-                  width: Get.width,
-                  child: TiutiuLogo(),
+                Positioned(
+                  right: 8.0.w,
+                  top: 40.0.h,
+                  left: 8.0.w,
+                  child: SizedBox(
+                    width: Get.width,
+                    child: TiutiuLogo(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),

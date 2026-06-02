@@ -20,27 +20,29 @@ class CountrySelecter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultBasicAppBar(text: AppLocalizations.of(context)!.selectACountry),
-      body: FutureBuilder(
-        future: systemController.getUserChoiceCountry(),
-        builder: (context, _) {
-          return Container(
-            alignment: Alignment.center,
-            margin: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                LottieAnimation(animationPath: AnimationsAssets.spinningGlobe, size: 200.0.h),
-                OneLineText(text: AppLocalizations.of(context)!.chooseWhereSeePets, fontSize: 24),
-                const SizedBox(height: 16.0),
-                _countrySelectDropdown(),
-                _selectRadius(context),
-              ],
-            ),
-          );
-        },
+      body: SafeArea(
+        child: FutureBuilder(
+          future: systemController.getUserChoiceCountry(),
+          builder: (context, _) {
+            return Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  LottieAnimation(animationPath: AnimationsAssets.spinningGlobe, size: 200.0.h),
+                  OneLineText(text: AppLocalizations.of(context)!.chooseWhereSeePets, fontSize: 24),
+                  const SizedBox(height: 16.0),
+                  _countrySelectDropdown(),
+                  _selectRadius(context),
+                ],
+              ),
+            );
+          },
+        ),
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 16.0.h),
+        padding: EdgeInsets.only(bottom: 48.0.h, left: 16.0, right: 16.0),
         child: ButtonWide(
           text: AppLocalizations.of(context)!.ok,
           onPressed: () async {
