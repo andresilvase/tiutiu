@@ -8,7 +8,7 @@ import 'package:tiutiu/core/constants/app_colors.dart';
 import 'package:tiutiu/core/widgets/custom_badge.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tiutiu/core/utils/asset_handle.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/utils/formatter.dart';
 import 'package:flutter/material.dart';
 

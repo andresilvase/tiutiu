@@ -3,7 +3,7 @@ import 'package:tiutiu/features/dennounce/model/user_dennounce.dart';
 import 'package:tiutiu/core/extensions/string_extension.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/widgets/tiutiu_snackbar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

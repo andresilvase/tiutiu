@@ -1,5 +1,5 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/features/auth/widgets/headline.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/utils/routes/routes_name.dart';
@@ -70,8 +70,8 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
           begin: Alignment.bottomRight,
           end: Alignment.topLeft,
           colors: [
-            AppColors.black.withOpacity(.9),
-            AppColors.black.withOpacity(.4),
+            AppColors.black.withValues(alpha: .9),
+            AppColors.black.withValues(alpha: .4),
           ],
         ),
       ),

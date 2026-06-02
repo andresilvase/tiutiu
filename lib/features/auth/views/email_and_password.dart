@@ -1,7 +1,7 @@
 import 'package:tiutiu/features/auth/widgets/image_carousel_background.dart';
 import 'package:tiutiu/features/auth/models/email_password_auth.dart';
 import 'package:tiutiu/core/widgets/outline_input_text.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/widgets/simple_text_button.dart';
 import 'package:tiutiu/features/auth/widgets/headline.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

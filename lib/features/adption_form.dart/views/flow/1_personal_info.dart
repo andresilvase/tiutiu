@@ -1,5 +1,5 @@
 import 'package:tiutiu/core/widgets/underline_input_dropdown.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/widgets/outline_input_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
@@ -41,7 +41,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
       initialValue: adoptionFormController.adoptionForm.fullName,
       labelText: AppLocalizations.of(context)!.fullname,
       hintText: AppLocalizations.of(context)!.fullname,
-      textColor: AppColors.black.withOpacity(.5),
+      textColor: AppColors.black.withValues(alpha: .5),
       onChanged: (value) {
         adoptionFormController.setAdoptionForm(
           adoptionFormController.adoptionForm.copyWith(fullName: value),
@@ -58,7 +58,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
       initialValue: adoptionFormController.adoptionForm.address,
       labelText: AppLocalizations.of(context)!.address,
       hintText: AppLocalizations.of(context)!.address,
-      textColor: AppColors.black.withOpacity(.5),
+      textColor: AppColors.black.withValues(alpha: .5),
       onChanged: (value) {
         adoptionFormController.setAdoptionForm(
           adoptionFormController.adoptionForm.copyWith(address: value),
@@ -75,7 +75,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
       initialValue: adoptionFormController.adoptionForm.phone,
       labelText: AppLocalizations.of(context)!.phone,
       hintText: AppLocalizations.of(context)!.phone,
-      textColor: AppColors.black.withOpacity(.5),
+      textColor: AppColors.black.withValues(alpha: .5),
       keyboardType: TextInputType.phone,
       inputFormatters: [
         FilteringTextInputFormatter.digitsOnly,
@@ -97,7 +97,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
       initialValue: adoptionFormController.adoptionForm.email,
       labelText: AppLocalizations.of(context)!.email,
       hintText: AppLocalizations.of(context)!.email,
-      textColor: AppColors.black.withOpacity(.5),
+      textColor: AppColors.black.withValues(alpha: .5),
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) {
         adoptionFormController.setAdoptionForm(
@@ -117,7 +117,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
         children: [
           Expanded(
             child: UnderlineInputDropdown(
-              color: AppColors.black.withOpacity(.5),
+              color: AppColors.black.withValues(alpha: .5),
               onChanged: (anos) {
                 adoptionFormController.setAdoptionForm(
                   adoptionFormController.adoptionForm.copyWith(age: anos),
@@ -132,7 +132,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
           ),
           Expanded(
             child: UnderlineInputDropdown(
-              color: AppColors.black.withOpacity(.5),
+              color: AppColors.black.withValues(alpha: .5),
               onChanged: (maritalStatus) {
                 adoptionFormController.setAdoptionForm(
                   adoptionFormController.adoptionForm.copyWith(maritalStatus: maritalStatus),
@@ -152,7 +152,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
 
   OutlinedInputText _profission() {
     return OutlinedInputText(
-      textColor: AppColors.black.withOpacity(.5),
+      textColor: AppColors.black.withValues(alpha: .5),
       initialValue: adoptionFormController.adoptionForm.profission,
       labelText: AppLocalizations.of(context)!.profession,
       hintText: AppLocalizations.of(context)!.profession,

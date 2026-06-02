@@ -1,7 +1,7 @@
 import 'package:tiutiu/core/location/models/states_and_cities.dart';
 import 'package:tiutiu/features/posts/model/filter_params.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

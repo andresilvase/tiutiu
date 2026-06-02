@@ -1,4 +1,4 @@
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/constants/text_styles.dart';
@@ -39,7 +39,7 @@ class _FinancialInfoState extends State<FinancialInfo> {
           padding: EdgeInsets.symmetric(horizontal: 0.0.h),
           child: AutoSizeTexts.autoSizeText16(
             AppLocalizations.of(context)!.haveTimeEnough,
-            color: AppColors.black.withOpacity(.5),
+            color: AppColors.black.withValues(alpha: .5),
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -86,7 +86,7 @@ class _FinancialInfoState extends State<FinancialInfo> {
           padding: EdgeInsets.symmetric(horizontal: 0.0.h),
           child: AutoSizeTexts.autoSizeText16(
             AppLocalizations.of(context)!.haveMoneyEnough,
-            color: AppColors.black.withOpacity(.5),
+            color: AppColors.black.withValues(alpha: .5),
             fontWeight: FontWeight.w600,
           ),
         ),

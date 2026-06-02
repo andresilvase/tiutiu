@@ -1,4 +1,4 @@
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/widgets/outline_input_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
@@ -31,7 +31,7 @@ class _ReferenceContactsState extends State<ReferenceContacts> {
   OutlinedInputText phone1() {
     return OutlinedInputText(
       keyboardType: TextInputType.phone,
-      textColor: AppColors.black.withOpacity(.5),
+      textColor: AppColors.black.withValues(alpha: .5),
       labelText: '${AppLocalizations.of(context)!.phone} 1',
       hintText: '${AppLocalizations.of(context)!.phone} 1',
       inputFormatters: [
@@ -51,7 +51,7 @@ class _ReferenceContactsState extends State<ReferenceContacts> {
   OutlinedInputText phone2() {
     return OutlinedInputText(
       keyboardType: TextInputType.phone,
-      textColor: AppColors.black.withOpacity(.5),
+      textColor: AppColors.black.withValues(alpha: .5),
       labelText: '${AppLocalizations.of(context)!.phone} 2',
       hintText: '${AppLocalizations.of(context)!.phone} 2',
       inputFormatters: [
@@ -71,7 +71,7 @@ class _ReferenceContactsState extends State<ReferenceContacts> {
   OutlinedInputText phone3() {
     return OutlinedInputText(
       keyboardType: TextInputType.phone,
-      textColor: AppColors.black.withOpacity(.5),
+      textColor: AppColors.black.withValues(alpha: .5),
       labelText: '${AppLocalizations.of(context)!.phone} 3',
       hintText: '${AppLocalizations.of(context)!.phone} 3',
       inputFormatters: [

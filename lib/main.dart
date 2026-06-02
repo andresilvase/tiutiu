@@ -7,7 +7,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -189,7 +189,7 @@ class _TiuTiuAppState extends State<TiuTiuApp> {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(
-          bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.black.withOpacity(0)),
+          bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.black.withValues(alpha: 0)),
           scaffoldBackgroundColor: Color(0XFFF9F9F9),
           primarySwatch: AppColors.secondary,
           primaryColor: AppColors.primary,

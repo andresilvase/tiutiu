@@ -4,7 +4,7 @@ import 'package:tiutiu/core/local_storage/local_storage_keys.dart';
 import 'package:tiutiu/features/auth/service/auth_service.dart';
 import 'package:tiutiu/core/Exceptions/tiutiu_exceptions.dart';
 import 'package:tiutiu/core/local_storage/local_storage.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/constants/assets_path.dart';

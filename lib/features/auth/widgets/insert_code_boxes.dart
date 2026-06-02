@@ -1,6 +1,6 @@
 import 'package:tiutiu/core/constants/app_colors.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';

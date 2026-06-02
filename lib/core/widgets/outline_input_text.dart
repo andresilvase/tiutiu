@@ -86,7 +86,7 @@ class OutlinedInputText extends StatelessWidget {
           counterText: showCounterText ? null : '',
           labelText: labelText,
           hintStyle: TextStyle(
-            color: textColor != null ? textColor!.withOpacity(.7) : AppColors.white,
+            color: textColor != null ? textColor!.withValues(alpha: .7) : AppColors.white,
             fontWeight: FontWeight.w600,
             fontSize: fontSize ?? 18.0,
           ),

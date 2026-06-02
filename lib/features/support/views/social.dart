@@ -17,7 +17,7 @@ class FollowUs extends StatelessWidget {
       body: Stack(
         children: [
           ImageCarouselBackground(),
-          Container(color: AppColors.black.withOpacity(.5)),
+          Container(color: AppColors.black.withValues(alpha: .5)),
           Container(
             width: double.infinity,
             height: Get.height,

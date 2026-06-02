@@ -2,7 +2,7 @@ import 'package:tiutiu/features/posts/widgets/video_player_picker.dart';
 import 'package:tiutiu/core/widgets/animated_text_icon_button.dart';
 import 'package:tiutiu/features/posts/widgets/ad_video_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/widgets/one_line_text.dart';
 import 'package:tiutiu/features/posts/model/post.dart';
@@ -58,8 +58,7 @@ class PostVideo extends StatelessWidget {
       onVideoPicked: (file) {
         if (file != null) {
           File videoFile = File(file.path);
-          VideoPlayerController videoPlayerController =
-              VideoPlayerController.file(videoFile);
+          VideoPlayerController videoPlayerController = VideoPlayerController.file(videoFile);
 
           videoPlayerController.initialize().then((value) {
             videoPlayerController.setVolume(0);
@@ -70,11 +69,8 @@ class PostVideo extends StatelessWidget {
               postsController.updatePost(PostEnum.video.name, videoFile);
               postsController.clearError();
             } else {
-              if (kDebugMode)
-                debugPrint(
-                    'TiuTiuApp: Video Size Exceed ${videoDuration.inSeconds}');
-              postsController
-                  .setError(AppLocalizations.of(context)!.videoSizeExceed);
+              if (kDebugMode) debugPrint('TiuTiuApp: Video Size Exceed ${videoDuration.inSeconds}');
+              postsController.setError(AppLocalizations.of(context)!.videoSizeExceed);
             }
             videoPlayerController.dispose();
           });
@@ -85,13 +81,10 @@ class PostVideo extends StatelessWidget {
 
   Widget _playVideo() {
     final isFile = postsController.post.video is File;
-    final videoUrl =
-        isFile ? postsController.post.video.path : postsController.post.video;
+    final videoUrl = isFile ? postsController.post.video.path : postsController.post.video;
 
     return VideoPlayerPicker(
-      type: isFile
-          ? BetterPlayerDataSourceType.file
-          : BetterPlayerDataSourceType.network,
+      type: isFile ? BetterPlayerDataSourceType.file : BetterPlayerDataSourceType.network,
       videoPath: videoUrl,
     );
   }

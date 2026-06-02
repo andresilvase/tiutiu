@@ -11,7 +11,7 @@ import 'package:tiutiu/features/posts/flow/init_post_flow.dart';
 import 'package:tiutiu/features/tiutiutok/views/tiutiutok.dart';
 import 'package:tiutiu/features/home/widgets/bottom_bar.dart';
 import 'package:tiutiu/features/admob/widgets/ad_banner.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/features/posts/views/posts_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:permission_handler/permission_handler.dart';

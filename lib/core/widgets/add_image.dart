@@ -1,6 +1,6 @@
 import 'package:tiutiu/core/widgets/animated_text_icon_button.dart';
 import 'package:tiutiu/features/posts/widgets/ad_picture.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/widgets/one_line_text.dart';
 import 'package:tiutiu/core/constants/app_colors.dart';

@@ -1,6 +1,6 @@
 import 'package:tiutiu/features/dennounce/services/dennounce_services.dart';
 import 'package:tiutiu/features/dennounce/model/user_dennounce.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:uuid/uuid.dart';
 import 'package:get/get.dart';

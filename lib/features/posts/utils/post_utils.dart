@@ -3,7 +3,7 @@ import 'package:tiutiu/core/location/models/states_and_cities.dart';
 import 'package:tiutiu/features/posts/services/post_service.dart';
 import 'package:tiutiu/core/models/dynamic_link_parameters.dart';
 import 'package:tiutiu/core/extensions/string_extension.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:tiutiu/core/pets/model/pet_model.dart';

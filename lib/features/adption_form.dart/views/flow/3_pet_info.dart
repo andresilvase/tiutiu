@@ -1,6 +1,6 @@
 import 'package:tiutiu/core/widgets/underline_input_dropdown.dart';
 import 'package:tiutiu/features/posts/widgets/text_area.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/constants/text_styles.dart';
@@ -40,7 +40,7 @@ class _PetInfoState extends State<PetInfo> {
 
   UnderlineInputDropdown petType() {
     return UnderlineInputDropdown(
-      color: AppColors.black.withOpacity(.5),
+      color: AppColors.black.withValues(alpha: .5),
       labelBold: true,
       initialValue: adoptionFormController.adoptionForm.interestedType,
       onChanged: (type) {
@@ -59,7 +59,7 @@ class _PetInfoState extends State<PetInfo> {
 
   UnderlineInputDropdown _petBreed() {
     return UnderlineInputDropdown(
-      color: AppColors.black.withOpacity(.5),
+      color: AppColors.black.withValues(alpha: .5),
       labelBold: true,
       initialValue: adoptionFormController.adoptionForm.interestedBreed,
       onChanged: (breed) {
@@ -82,7 +82,7 @@ class _PetInfoState extends State<PetInfo> {
           padding: EdgeInsets.symmetric(horizontal: 8.0.h),
           child: AutoSizeTexts.autoSizeText16(
             AppLocalizations.of(Get.context!)!.areExperiencedInThisPet,
-            color: AppColors.black.withOpacity(.5),
+            color: AppColors.black.withValues(alpha: .5),
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -129,7 +129,7 @@ class _PetInfoState extends State<PetInfo> {
         children: [
           AutoSizeTexts.autoSizeText16(
             AppLocalizations.of(Get.context!)!.whyYouWantThisPet,
-            color: AppColors.black.withOpacity(.5),
+            color: AppColors.black.withValues(alpha: .5),
             fontWeight: FontWeight.w600,
           ),
           SizedBox(height: 8.0.h),

@@ -1,5 +1,5 @@
 import 'package:tiutiu/core/widgets/default_basic_app_bar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/widgets/lottie_animation.dart';
@@ -27,24 +27,20 @@ class LocalizationServiceAccessPermissionAccess extends StatefulWidget {
   final bool isInPostScreen;
 
   @override
-  State<LocalizationServiceAccessPermissionAccess> createState() =>
-      _LocalizationServiceAccessPermissionAccessState();
+  State<LocalizationServiceAccessPermissionAccess> createState() => _LocalizationServiceAccessPermissionAccessState();
 }
 
-class _LocalizationServiceAccessPermissionAccessState
-    extends State<LocalizationServiceAccessPermissionAccess> with TiuTiuPopUp {
+class _LocalizationServiceAccessPermissionAccessState extends State<LocalizationServiceAccessPermissionAccess>
+    with TiuTiuPopUp {
   final ValueNotifier<PermissionStatus> locationAccessStatus =
       ValueNotifier<PermissionStatus>(PermissionStatus.limited);
   bool get isInPostScreen => widget.isInPostScreen;
 
-  Future<PermissionStatus> getPermissionStatus() async =>
-      Permission.location.status;
+  Future<PermissionStatus> getPermissionStatus() async => Permission.location.status;
 
   @override
   Widget build(BuildContext context) {
-    if (kDebugMode)
-      debugPrint(
-          'TiuTiuApp: local access denied? ${widget.localAccessDenied ? 'Sim' : 'Não'}');
+    if (kDebugMode) debugPrint('TiuTiuApp: local access denied? ${widget.localAccessDenied ? 'Sim' : 'Não'}');
 
     return Scaffold(
       appBar: DefaultBasicAppBar(
@@ -82,19 +78,15 @@ class _LocalizationServiceAccessPermissionAccessState
     );
   }
 
-  Widget _petPawPin() => LottieAnimation(
-      animationPath: AnimationsAssets.petLocationPin, size: 120.0.h);
+  Widget _petPawPin() => LottieAnimation(animationPath: AnimationsAssets.petLocationPin, size: 120.0.h);
 
-  Background _googleRoutesImage() =>
-      Background(image: ImageAssets.googlePlaces);
+  Background _googleRoutesImage() => Background(image: ImageAssets.googlePlaces);
 
   Widget _explainAccessPermissionText() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.0.w),
       child: AutoSizeTexts.autoSizeText16(
-        isInPostScreen
-            ? AppLocalizations.of(context)!.needsAccessToPost
-            : AppLocalizations.of(context)!.needsAccess,
+        isInPostScreen ? AppLocalizations.of(context)!.needsAccessToPost : AppLocalizations.of(context)!.needsAccess,
         textAlign: TextAlign.center,
       ),
     );
@@ -112,8 +104,7 @@ class _LocalizationServiceAccessPermissionAccessState
           buttonText = AppLocalizations.of(context)!.ok;
         }
 
-        return ButtonWide(
-            onPressed: () async => onPrimaryPressed(), text: buttonText);
+        return ButtonWide(onPressed: () async => onPrimaryPressed(), text: buttonText);
       },
     );
   }
@@ -123,8 +114,7 @@ class _LocalizationServiceAccessPermissionAccessState
       await Permission.location.request().then((permission) async {
         locationAccessStatus.value = permission;
         await currentLocationController.setPermission(permission);
-        if (currentLocationController.permissionStatus ==
-            PermissionStatus.permanentlyDenied) await showWarningPopup();
+        if (currentLocationController.permissionStatus == PermissionStatus.permanentlyDenied) await showWarningPopup();
       });
     } else {
       locationAccessStatus.value = await Permission.location.request();
@@ -139,15 +129,13 @@ class _LocalizationServiceAccessPermissionAccessState
   Future<void> showWarningPopup() async {
     final message = isInPostScreen
         ? AppLocalizations.of(Get.context!)!.appNeedToKnowWhereYouAre
-        : AppLocalizations.of(Get.context!)!
-            .appNeedToKnowWhereYouAreToShowNearestPets;
+        : AppLocalizations.of(Get.context!)!.appNeedToKnowWhereYouAreToShowNearestPets;
 
     return await showPopUp(
       message: message,
       confirmText: 'Abrir configurações',
       title: AppLocalizations.of(context)!.localization,
-      denyText:
-          isInPostScreen ? 'Não quero postar agora' : 'Somente ver os PETs',
+      denyText: isInPostScreen ? 'Não quero postar agora' : 'Somente ver os PETs',
       barrierDismissible: false,
       secondaryAction: () {
         Get.back();

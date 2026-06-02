@@ -7,7 +7,7 @@ import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/constants/text_styles.dart';
 import 'package:tiutiu/core/mixins/tiu_tiu_pop_up.dart';
 import 'package:tiutiu/core/constants/app_colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -63,9 +63,7 @@ class DeleteAccountScreen extends StatelessWidget with TiuTiuPopUp {
           return SizedBox(
             height: 12.0.h,
             child: RadioListTile(
-              value:
-                  deleteAccountController.deleteAccountMotives.indexOf(motive),
-              groupValue: deleteAccountController.deleteAccountGroupValue,
+              value: deleteAccountController.deleteAccountMotives.indexOf(motive),
               title: AutoSizeTexts.autoSizeText14(motive),
               activeColor: AppColors.secondary,
               onChanged: (int? value) {
@@ -80,32 +78,24 @@ class DeleteAccountScreen extends StatelessWidget with TiuTiuPopUp {
   }
 
   Visibility _describedMotiveTextArea(BuildContext context) {
-    final motiveIsBug = deleteAccountController.deleteAccountMotive ==
-        AppLocalizations.of(context)!.bugs;
+    final motiveIsBug = deleteAccountController.deleteAccountMotive == AppLocalizations.of(context)!.bugs;
 
     return Visibility(
-      visible: deleteAccountController.deleteAccountMotive ==
-              AppLocalizations.of(context)!.other ||
-          motiveIsBug,
+      visible: deleteAccountController.deleteAccountMotive == AppLocalizations.of(context)!.other || motiveIsBug,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: TextArea(
           maxLines: 2,
-          labelText: motiveIsBug
-              ? AppLocalizations.of(context)!.whichBugs
-              : AppLocalizations.of(context)!.jotSomethingDown,
+          labelText:
+              motiveIsBug ? AppLocalizations.of(context)!.whichBugs : AppLocalizations.of(context)!.jotSomethingDown,
           initialValue: deleteAccountController.deleteAccountMotiveDescribed,
           isInErrorState: deleteAccountController.hasError,
           onSubmit: (value) {
             deleteAccountController.deleteAccountMotiveDescribed = value.trim();
-            if (value.isNotEmpty)
-              deleteAccountController.deleteAccountMotiveDescribed =
-                  value.trim();
+            if (value.isNotEmpty) deleteAccountController.deleteAccountMotiveDescribed = value.trim();
           },
           onChanged: (value) {
-            if (value.isEmpty)
-              deleteAccountController.deleteAccountMotiveDescribed =
-                  value.trim();
+            if (value.isEmpty) deleteAccountController.deleteAccountMotiveDescribed = value.trim();
           },
         ),
       ),
@@ -132,10 +122,8 @@ class DeleteAccountScreen extends StatelessWidget with TiuTiuPopUp {
 
   Future<void> _onDeleteAccountButtonPressed(BuildContext context) async {
     deleteAccountController.hasError =
-        (deleteAccountController.deleteAccountMotive ==
-                    AppLocalizations.of(context)!.other ||
-                deleteAccountController.deleteAccountMotive ==
-                    AppLocalizations.of(context)!.bugs) &&
+        (deleteAccountController.deleteAccountMotive == AppLocalizations.of(context)!.other ||
+                deleteAccountController.deleteAccountMotive == AppLocalizations.of(context)!.bugs) &&
             deleteAccountController.deleteAccountMotiveDescribed.isEmpty;
 
     if (!deleteAccountController.hasError) {
@@ -143,9 +131,7 @@ class DeleteAccountScreen extends StatelessWidget with TiuTiuPopUp {
         if (canDeleteAccount) {
           await _deleteAccountForever();
         } else {
-          deleteAccountController
-              .showDeleteAccountLogoutWarningPopup()
-              .then((_) => Get.back());
+          deleteAccountController.showDeleteAccountLogoutWarningPopup().then((_) => Get.back());
         }
       });
     }

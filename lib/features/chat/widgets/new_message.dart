@@ -4,7 +4,7 @@ import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/features/chat/model/message.dart';
 import 'package:tiutiu/core/constants/app_colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';

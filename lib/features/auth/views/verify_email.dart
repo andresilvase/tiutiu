@@ -6,7 +6,7 @@ import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/constants/text_styles.dart';
 import 'package:tiutiu/core/constants/app_colors.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -128,7 +128,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
     return Visibility(
       visible: homeController.bottomBarIndex != BottomBarIndex.POST.indx,
       child: SimpleTextButton(
-        textColor: AppColors.black.withOpacity(.7),
+        textColor: AppColors.black.withValues(alpha: .7),
         onPressed: () => Get.back(),
         text: AppLocalizations.of(context)!.back,
       ),

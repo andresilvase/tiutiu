@@ -2,7 +2,7 @@ import 'package:tiutiu/features/admob/constants/admob_block_names.dart';
 import 'package:tiutiu/features/sponsored/widget/sponsodred_tile.dart';
 import 'package:tiutiu/core/widgets/default_basic_app_bar.dart';
 import 'package:tiutiu/features/admob/widgets/ad_banner.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/widgets/one_line_text.dart';

@@ -1,6 +1,6 @@
 import 'package:tiutiu/features/posts/widgets/text_area.dart';
 import 'package:tiutiu/core/widgets/outline_input_text.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/constants/text_styles.dart';
@@ -41,12 +41,12 @@ class _HouseInfoState extends State<HouseInfo> {
       children: [
         AutoSizeTexts.autoSizeText14(
           AppLocalizations.of(context)!.houseType,
-          color: AppColors.black.withOpacity(.5),
+          color: AppColors.black.withValues(alpha: .5),
           fontWeight: FontWeight.w600,
         ),
         SizedBox(height: 8.0.h),
         OutlinedInputText(
-          textColor: AppColors.black.withOpacity(.5),
+          textColor: AppColors.black.withValues(alpha: .5),
           labelText: AppLocalizations.of(context)!.houseTypeOptions,
           initialValue: adoptionFormController.adoptionForm.houseType,
           onChanged: (value) {
@@ -69,7 +69,7 @@ class _HouseInfoState extends State<HouseInfo> {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 0.0.h),
           child: AutoSizeTexts.autoSizeText16(
-            color: AppColors.black.withOpacity(.5),
+            color: AppColors.black.withValues(alpha: .5),
             AppLocalizations.of(context)!.haveYard,
             fontWeight: FontWeight.w600,
           ),
@@ -115,7 +115,7 @@ class _HouseInfoState extends State<HouseInfo> {
       children: [
         AutoSizeTexts.autoSizeText14(
           AppLocalizations.of(context)!.haveChildren,
-          color: AppColors.black.withOpacity(.5),
+          color: AppColors.black.withValues(alpha: .5),
           fontWeight: FontWeight.w600,
         ),
         SizedBox(height: 8.0.h),
@@ -140,7 +140,7 @@ class _HouseInfoState extends State<HouseInfo> {
       children: [
         AutoSizeTexts.autoSizeText14(
           AppLocalizations.of(context)!.haveAnimals,
-          color: AppColors.black.withOpacity(.5),
+          color: AppColors.black.withValues(alpha: .5),
           fontWeight: FontWeight.w600,
         ),
         SizedBox(height: 8.0.h),

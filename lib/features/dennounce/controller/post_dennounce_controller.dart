@@ -1,6 +1,6 @@
 import 'package:tiutiu/features/dennounce/services/dennounce_services.dart';
 import 'package:tiutiu/features/dennounce/model/post_dennounce.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/features/posts/utils/post_utils.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/pets/model/pet_model.dart';

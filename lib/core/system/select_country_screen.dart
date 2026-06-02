@@ -1,6 +1,6 @@
 import 'package:tiutiu/core/widgets/default_basic_app_bar.dart';
 import 'package:tiutiu/core/extensions/string_extension.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/utils/routes/routes_name.dart';
 import 'package:tiutiu/core/widgets/lottie_animation.dart';
@@ -60,7 +60,7 @@ class CountrySelecter extends StatelessWidget {
         children: [
           DropdownButton<String>(
             underline: Container(
-              color: AppColors.black.withOpacity(.5),
+              color: AppColors.black.withValues(alpha: .5),
               width: Get.width,
               height: 0.5.h,
             ),

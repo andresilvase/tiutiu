@@ -1,4 +1,4 @@
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/core/utils/other_functions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';

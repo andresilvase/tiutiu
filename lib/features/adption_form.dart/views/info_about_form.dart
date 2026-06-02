@@ -1,5 +1,5 @@
 import 'package:tiutiu/features/auth/widgets/image_carousel_background.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tiutiu/core/utils/routes/routes_name.dart';
 import 'package:tiutiu/core/constants/text_styles.dart';

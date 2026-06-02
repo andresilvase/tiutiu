@@ -6,7 +6,7 @@ import 'package:tiutiu/features/posts/services/post_service.dart';
 import 'package:tiutiu/core/models/dynamic_link_parameters.dart';
 import 'package:tiutiu/core/Exceptions/tiutiu_exceptions.dart';
 import 'package:tiutiu/core/extensions/string_extension.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/features/posts/utils/post_utils.dart';
 import 'package:tiutiu/core/utils/routes/routes_name.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';

@@ -6,7 +6,7 @@ import 'package:tiutiu/core/widgets/default_basic_app_bar.dart';
 import 'package:tiutiu/features/posts/flow/5_post_images.dart';
 import 'package:tiutiu/features/posts/flow/7_review_post.dart';
 import 'package:tiutiu/features/posts/flow/6_post_video.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:tiutiu/features/posts/flow/1_post_info.dart';
 import 'package:tiutiu/features/posts/widgets/stepper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

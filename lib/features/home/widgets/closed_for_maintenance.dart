@@ -7,7 +7,7 @@ import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:tiutiu/core/constants/assets_path.dart';
 import 'package:tiutiu/core/constants/text_styles.dart';
 import 'package:tiutiu/core/constants/app_colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tiutiu/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -34,10 +34,8 @@ class _MaintenanceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final appClosedMessageDescription =
-          adminRemoteConfigController.configs.appClosedMessageDescription;
-      final appClosedMessageTitle =
-          adminRemoteConfigController.configs.appClosedMessageTitle;
+      final appClosedMessageDescription = adminRemoteConfigController.configs.appClosedMessageDescription;
+      final appClosedMessageTitle = adminRemoteConfigController.configs.appClosedMessageTitle;
 
       return Scaffold(
         body: Container(
