@@ -9,36 +9,28 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get crashlyticsInfo =>
-      'To better resolve possible crashes in the application, we would like to receive crash reports automatically.\n\nWould you like to automatically send crash reports to developers?';
+  String get crashlyticsInfo => 'To better resolve possible crashes in the application, we would like to receive crash reports automatically.\n\nWould you like to automatically send crash reports to developers?';
 
   @override
-  String get permissionDeniedForeverWarning =>
-      'Go to the permissions setting on your device and allow Tiu, tiu to access your location.\n\nOnce finished, you may need to close and open the app and reopen it.';
+  String get permissionDeniedForeverWarning => 'Go to the permissions setting on your device and allow Tiu, tiu to access your location.\n\nOnce finished, you may need to close and open the app and reopen it.';
 
   @override
-  String get noConnectionWarning2 =>
-      'You need to be connected to some internet network to be able to adopt a PET, or even to post one for adoption or that is missing!';
+  String get noConnectionWarning2 => 'You need to be connected to some internet network to be able to adopt a PET, or even to post one for adoption or that is missing!';
 
   @override
-  String get haveMoneyEnough =>
-      'Do you have the financial resources to care for an animal? (feed, vaccination, veterinary appointments)';
+  String get haveMoneyEnough => 'Do you have the financial resources to care for an animal? (feed, vaccination, veterinary appointments)';
 
   @override
-  String get resetPasswordInstructionsSent =>
-      'Instructions on how to reset your password have been sent to the email address provided.';
+  String get resetPasswordInstructionsSent => 'Instructions on how to reset your password have been sent to the email address provided.';
 
   @override
-  String get notificationsMessageRequest =>
-      'Stay updated! Enable notifications to receive important alerts and updates in real-time.';
+  String get notificationsMessageRequest => 'Stay updated! Enable notifications to receive important alerts and updates in real-time.';
 
   @override
-  String get tryAgainInABrief =>
-      'Posts are temporarily unavailable.\nCheck back in a few minutes.\n\nThank you for understanding!';
+  String get tryAgainInABrief => 'Posts are temporarily unavailable.\nCheck back in a few minutes.\n\nThank you for understanding!';
 
   @override
-  String get aboutForm =>
-      'Generate and share an adoption form in PDF format or WhatsApp message format in a few seconds.';
+  String get aboutForm => 'Generate and share an adoption form in PDF format or WhatsApp message format in a few seconds.';
 
   @override
   String get deleteAccountWarning => 'After deleting your account, it cannot be recovered.\n\nDo you want to continue?';
@@ -426,6 +418,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String imageQty(num count) {
+    final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
+      locale: localeName,
+      
+    );
+    final String countString = countNumberFormat.format(count);
+
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
@@ -437,6 +435,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String postsQty(num count) {
+    final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
+      locale: localeName,
+      
+    );
+    final String countString = countNumberFormat.format(count);
+
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
@@ -2213,12 +2217,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get december => 'December';
 
   @override
-  String get appNeedToKnowWhereYouAreToShowNearestPets =>
-      'Tiutiu needs to know where you are to show you the closest PETs to you right now. You can even go in and see the PETs, but if you\'re going to make a publication, you\'ll need to inform your location!';
+  String get appNeedToKnowWhereYouAreToShowNearestPets => 'Tiutiu needs to know where you are to show you the closest PETs to you right now. You can even go in and see the PETs, but if you\'re going to make a publication, you\'ll need to inform your location!';
 
   @override
-  String get joinUs =>
-      'Join our network of supporting companies and help make a difference in the lives of animals. Have your business here 👇.';
+  String get joinUs => 'Join our network of supporting companies and help make a difference in the lives of animals. Have your business here 👇.';
 
   @override
   String get appNeedToKnowWhereYouAre => 'Tiutiu needs to know where the PET you are going to post is.';
@@ -2257,16 +2259,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get andThe => 'and';
 
   @override
-  String get aboutText =>
-      'The Tiu, tiu application was created with the aim of facilitating the adoption of pets. We believe that all animals deserve a loving and caring home, and we want to help connect people who want to adopt with those who want to donate their animals./n/n We are not an NGO, but we care about the animal cause and want to contribute in some way to reduce the number of abandoned animals on the streets. Our team is dedicated to ensuring that all transactions are done transparently and legally, to ensure the safety and well-being of the animals involved.';
+  String get aboutText => 'The Tiu, tiu application was created with the aim of facilitating the adoption of pets. We believe that all animals deserve a loving and caring home, and we want to help connect people who want to adopt with those who want to donate their animals./n/n We are not an NGO, but we care about the animal cause and want to contribute in some way to reduce the number of abandoned animals on the streets. Our team is dedicated to ensuring that all transactions are done transparently and legally, to ensure the safety and well-being of the animals involved.';
 
   @override
-  String get termsAndConditionsText =>
-      'Platform Usage: By downloading and using the Tiu, tiu app, you agree to follow all applicable laws and regulations. You also agree not to use the application in an illegal, harmful or offensive way./n/nObjectionable content:\nProhibition of selling animals: It is explicitly prohibited to sell animals through the Tiu, Tiu application. Any user who tries to sell animals through the app will be banned from the platform./n/n Prohibition of inappropriate content: Tiu, tiu app is dedicated to connecting animal adopters and donors. Any sexual or pornographic content will be prohibited and users who publish such content will be banned from the platform./n/n Reporting inappropriate content: Users have the right to report any publication they consider inappropriate. If a post receives a significant number of reports, it will be automatically deleted./n/n Responsibility for content: You are solely responsible for the content you post on the app, including information, photos and videos. Please ensure this information is accurate and does not infringe any third party copyright./n/n Changes to terms and conditions: We reserve the right to change these terms and conditions at any time without notice. Any changes will be posted on our \"Terms and Conditions\" page\"./n/n Questions and suggestions: If you have any questions about these terms and conditions, please contact us through the \"Contact Us\" tab in the app or via email tiutiuapp2@gmail.com./n/nBy using the Tiu application, tiu, you agree to all the terms and conditions mentioned above.';
+  String get termsAndConditionsText => 'Platform Usage: By downloading and using the Tiu, tiu app, you agree to follow all applicable laws and regulations. You also agree not to use the application in an illegal, harmful or offensive way./n/nObjectionable content:\nProhibition of selling animals: It is explicitly prohibited to sell animals through the Tiu, Tiu application. Any user who tries to sell animals through the app will be banned from the platform./n/n Prohibition of inappropriate content: Tiu, tiu app is dedicated to connecting animal adopters and donors. Any sexual or pornographic content will be prohibited and users who publish such content will be banned from the platform./n/n Reporting inappropriate content: Users have the right to report any publication they consider inappropriate. If a post receives a significant number of reports, it will be automatically deleted./n/n Responsibility for content: You are solely responsible for the content you post on the app, including information, photos and videos. Please ensure this information is accurate and does not infringe any third party copyright./n/n Changes to terms and conditions: We reserve the right to change these terms and conditions at any time without notice. Any changes will be posted on our \"Terms and Conditions\" page\"./n/n Questions and suggestions: If you have any questions about these terms and conditions, please contact us through the \"Contact Us\" tab in the app or via email tiutiuapp2@gmail.com./n/nBy using the Tiu application, tiu, you agree to all the terms and conditions mentioned above.';
 
   @override
-  String get privacyPolicyText =>
-      'The privacy of our users is very important to us. Therefore, we would like to explain how we collect, use and protect the personal information that you share with us when using the Tiu app, tiu./n/n/nData Collection:/nWe collect information such as location, name, WhatsApp number and email address. email only to ensure the correct functioning of the application. This information is essential so that we can connect users interested in adopting animals with users who want to donate their animals./n/n/nUse of Data:/nWe do not share your personal information with third parties. We use your information only to provide the services offered by the application./n/n/nDeletion of Data:/nUsers can request the deletion of their information through the application itself, just access the \"Delete my account\" option. Upon deletion, your data will be permanently removed from our systems./n/n/nSecurity:/nWe take security measures to protect your personal information from unauthorized access and inappropriate use. However, we cannot guarantee the absolute security of information transmitted over the internet. It is important that you take steps to protect your information, such as not sharing your password and keeping your device secure./n/n/nPrivacy Policy Changes:/nWe reserve the right to change this privacy policy at any time, without early warning. Any changes will be posted on our \"Privacy Policy\" page./n/n/nIf you have any questions about this privacy policy, please contact us at tiutiuapp2@gmail.com.';
+  String get privacyPolicyText => 'The privacy of our users is very important to us. Therefore, we would like to explain how we collect, use and protect the personal information that you share with us when using the Tiu app, tiu./n/n/nData Collection:/nWe collect information such as location, name, WhatsApp number and email address. email only to ensure the correct functioning of the application. This information is essential so that we can connect users interested in adopting animals with users who want to donate their animals./n/n/nUse of Data:/nWe do not share your personal information with third parties. We use your information only to provide the services offered by the application./n/n/nDeletion of Data:/nUsers can request the deletion of their information through the application itself, just access the \"Delete my account\" option. Upon deletion, your data will be permanently removed from our systems./n/n/nSecurity:/nWe take security measures to protect your personal information from unauthorized access and inappropriate use. However, we cannot guarantee the absolute security of information transmitted over the internet. It is important that you take steps to protect your information, such as not sharing your password and keeping your device secure./n/n/nPrivacy Policy Changes:/nWe reserve the right to change this privacy policy at any time, without early warning. Any changes will be posted on our \"Privacy Policy\" page./n/n/nIf you have any questions about this privacy policy, please contact us at tiutiuapp2@gmail.com.';
 
   @override
   String get afghanistan => 'Afghanistan';
