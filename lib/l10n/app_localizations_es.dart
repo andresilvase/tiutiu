@@ -585,9 +585,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get fillAdData => 'Complete los datos de la publicación';
 
   @override
-  String get facebook => 'Iniciar sesión con Facebook';
-
-  @override
   String get endApp => 'Terminar aplicación';
 
   @override

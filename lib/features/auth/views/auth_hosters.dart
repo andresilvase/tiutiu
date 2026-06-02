@@ -133,8 +133,7 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // Social login UI is intentionally disabled. Keep the implementation
-        // available so the providers can be restored without reconfiguration.
+        // Social login UI is intentionally disabled.
         /*
         Visibility(
           visible: Platform.isIOS,
@@ -164,21 +163,6 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
           onPressed: () => _loginWithGoogle(context),
           color: AppColors.danger,
           isToExpand: true,
-        ),
-        Visibility(
-          visible: Platform.isAndroid,
-          child: Column(
-            children: [
-              ButtonWide(
-                icon: FontAwesomeIcons.facebook.data,
-                onPressed: () => _loginWithFacebook(context),
-                text: AppLocalizations.of(context)!.facebook,
-                color: AppColors.info,
-                isToExpand: true,
-              ),
-              SizedBox(height: 4.0.h),
-            ],
-          ),
         ),
         */
         _continueAnonButton(context),
@@ -270,37 +254,10 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
     }
   }
 
-  // ignore: unused_element
-  void _loginWithFacebook(BuildContext context) async {
-    try {
-      await authController.loginWithFacebook().then(
-        (success) {
-          if (success) {
-            goToHome();
-            authController.isLoading = false;
-          }
-        },
-      );
-    } catch (exception) {
-      authController.isLoading = false;
-
-      crashlyticsController.reportAnError(
-        message: 'Error Logining with Facebook: $exception',
-        exception: exception,
-        stackTrace: StackTrace.current,
-      );
-
-      showPopUp(
-        title: AppLocalizations.of(context)!.authFailure,
-        message: exception.toString(),
-        backGroundColor: AppColors.danger,
-      );
-    }
-  }
-
   void goToHome() {
     final bottomIndex = homeController.bottomBarIndex;
-    if (kDebugMode) debugPrint('TiuTiuApp: Bottom Index == 0? ${bottomIndex == 0}');
+    if (kDebugMode)
+      debugPrint('TiuTiuApp: Bottom Index == 0? ${bottomIndex == 0}');
 
     if (systemController.properties.internetConnected) {
       Get.offAndToNamed(Routes.home);

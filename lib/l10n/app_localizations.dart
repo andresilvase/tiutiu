@@ -1177,12 +1177,6 @@ abstract class AppLocalizations {
   /// **'Fill in post data'**
   String get fillAdData;
 
-  /// No description provided for @facebook.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue with Facebook'**
-  String get facebook;
-
   /// No description provided for @endApp.
   ///
   /// In en, this message translates to:

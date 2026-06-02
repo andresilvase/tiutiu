@@ -24,11 +24,13 @@ enum AuthKeys {
 }
 
 class AuthController extends GetxController {
-  AuthController({required AuthService authService}) : _authService = authService;
+  AuthController({required AuthService authService})
+      : _authService = authService;
 
   final AuthService _authService;
 
-  final Rx<EmailAndPasswordAuth> _emailAndPasswordAuth = EmailAndPasswordAuth().obs;
+  final Rx<EmailAndPasswordAuth> _emailAndPasswordAuth =
+      EmailAndPasswordAuth().obs;
   final RxBool _isUpdatingUserDataOnServer = false.obs;
   final RxBool _isCreatingNewAccount = false.obs;
   final RxBool _isWhatsappTokenValid = true.obs;
@@ -74,7 +76,8 @@ class AuthController extends GetxController {
     _feedbackText(loadingText);
   }
 
-  void updateEmailAndPasswordAuth(EmailAndPasswordAuthEnum property, dynamic data) {
+  void updateEmailAndPasswordAuth(
+      EmailAndPasswordAuthEnum property, dynamic data) {
     final map = emailAndPasswordAuth.toMap();
     map[property.name] = data;
 
@@ -93,7 +96,9 @@ class AuthController extends GetxController {
     if (!isWhatsappTokenValid) {
       final code = _generateCode();
       final whatsappTokenData = WhatsAppToken(
-        expirationDate: DateTime.now().add(Duration(seconds: WHATSAPP_EXPIRATION_TOKEN_TIMER)).toIso8601String(),
+        expirationDate: DateTime.now()
+            .add(Duration(seconds: WHATSAPP_EXPIRATION_TOKEN_TIMER))
+            .toIso8601String(),
         code: code,
       );
 
@@ -104,7 +109,8 @@ class AuthController extends GetxController {
         data: whatsappTokenData.toMap(),
       );
 
-      final phoneNumber = Formatters.unmaskNumber(tiutiuUserController.tiutiuUser.phoneNumber);
+      final phoneNumber =
+          Formatters.unmaskNumber(tiutiuUserController.tiutiuUser.phoneNumber);
       final countryCode = tiutiuUserController.tiutiuUser.countryCode ?? '+55';
 
       if (phoneNumber != null) {
@@ -130,7 +136,9 @@ class AuthController extends GetxController {
   Future<bool> whatsAppCodeIsValid(String insertedCode) async {
     bool success = false;
     final whatsAppTokenData = await _getWhatsappStorageToken();
-    if (kDebugMode) debugPrint('TiuTiuApp: Whatsapp tokenData ${whatsAppTokenData?.toMap()}..');
+    if (kDebugMode)
+      debugPrint(
+          'TiuTiuApp: Whatsapp tokenData ${whatsAppTokenData?.toMap()}..');
 
     if (whatsAppTokenData != null) {
       final codeSent = (whatsAppTokenData as WhatsAppToken).code;
@@ -138,9 +146,12 @@ class AuthController extends GetxController {
         success = codeSent == insertedCode;
         _numberVerified(success);
 
-        if (kDebugMode) debugPrint('TiuTiuApp: Valid inserted code $codeSent == $insertedCode');
+        if (kDebugMode)
+          debugPrint(
+              'TiuTiuApp: Valid inserted code $codeSent == $insertedCode');
       } else {
-        if (kDebugMode) debugPrint('TiuTiuApp: INVALID CODE $codeSent != $insertedCode');
+        if (kDebugMode)
+          debugPrint('TiuTiuApp: INVALID CODE $codeSent != $insertedCode');
         _feedbackText(AppLocalizations.of(Get.context!)!.invalidCode);
       }
     } else {
@@ -156,7 +167,8 @@ class AuthController extends GetxController {
       true,
     );
 
-    LocalStorage.deleteDataUnderLocalStorageKey(LocalStorageKey.whatsappTokenData);
+    LocalStorage.deleteDataUnderLocalStorageKey(
+        LocalStorageKey.whatsappTokenData);
     _numberVerified(false);
     updateUserInfo();
   }
@@ -168,23 +180,31 @@ class AuthController extends GetxController {
       if (kDebugMode) debugPrint('TiuTiuApp: Token expired: No data');
       _isWhatsappTokenValid(false);
     } else if (tiutiuUserController.whatsappNumberHasBeenUpdated) {
-      if (kDebugMode) debugPrint('TiuTiuApp: Token expired: Number has been updated');
+      if (kDebugMode)
+        debugPrint('TiuTiuApp: Token expired: Number has been updated');
       _isWhatsappTokenValid(false);
     } else {
-      if (kDebugMode) debugPrint('TiuTiuApp: Whatsapp tokenData ${whatsAppTokenData?.toMap()}..');
-      final expirationDate = (whatsAppTokenData as WhatsAppToken).expirationDate!;
-      final isTokenExpired = DateTime.now().isAfter(DateTime.parse(expirationDate));
+      if (kDebugMode)
+        debugPrint(
+            'TiuTiuApp: Whatsapp tokenData ${whatsAppTokenData?.toMap()}..');
+      final expirationDate =
+          (whatsAppTokenData as WhatsAppToken).expirationDate!;
+      final isTokenExpired =
+          DateTime.now().isAfter(DateTime.parse(expirationDate));
 
       _isWhatsappTokenValid(!isTokenExpired);
 
       if (isWhatsappTokenValid) {
-        final seconds = DateTime.parse(expirationDate).difference(DateTime.now()).inSeconds;
+        final seconds =
+            DateTime.parse(expirationDate).difference(DateTime.now()).inSeconds;
         _secondsToExpireCode(seconds);
       } else {
-        LocalStorage.deleteDataUnderLocalStorageKey(LocalStorageKey.whatsappTokenData);
+        LocalStorage.deleteDataUnderLocalStorageKey(
+            LocalStorageKey.whatsappTokenData);
       }
 
-      if (kDebugMode) debugPrint('TiuTiuApp: Token still valid $isWhatsappTokenValid');
+      if (kDebugMode)
+        debugPrint('TiuTiuApp: Token still valid $isWhatsappTokenValid');
     }
   }
 
@@ -192,15 +212,22 @@ class AuthController extends GetxController {
     checkIfEmailWasVerified();
 
     if (!tiutiuUserController.tiutiuUser.emailVerified) {
-      final lastSendEmailTime = await LocalStorage.getValueUnderLocalStorageKey(LocalStorageKey.lastSendEmailTime);
-      if (kDebugMode) debugPrint('TiuTiuApp: verify should resend email storage data $lastSendEmailTime');
+      final lastSendEmailTime = await LocalStorage.getValueUnderLocalStorageKey(
+          LocalStorageKey.lastSendEmailTime);
+      if (kDebugMode)
+        debugPrint(
+            'TiuTiuApp: verify should resend email storage data $lastSendEmailTime');
 
       if (lastSendEmailTime != null) {
-        final minutes = DateTime.now().difference(DateTime.parse(lastSendEmailTime)).inMinutes;
+        final minutes = DateTime.now()
+            .difference(DateTime.parse(lastSendEmailTime))
+            .inMinutes;
 
         if (minutes >= 2) {
-          if (kDebugMode) debugPrint('TiuTiuApp: last sent email is expired...');
-          await LocalStorage.deleteDataUnderLocalStorageKey(LocalStorageKey.lastSendEmailTime);
+          if (kDebugMode)
+            debugPrint('TiuTiuApp: last sent email is expired...');
+          await LocalStorage.deleteDataUnderLocalStorageKey(
+              LocalStorageKey.lastSendEmailTime);
           _allowResendEmail(true);
         } else {
           _allowResendEmail(false);
@@ -217,7 +244,8 @@ class AuthController extends GetxController {
     final isEmailVerified = user?.emailVerified ?? false;
 
     if (isEmailVerified) {
-      tiutiuUserController.updateTiutiuUser(TiutiuUserEnum.emailVerified, isEmailVerified);
+      tiutiuUserController.updateTiutiuUser(
+          TiutiuUserEnum.emailVerified, isEmailVerified);
     }
   }
 
@@ -282,25 +310,10 @@ class AuthController extends GetxController {
     isShowingPassword = false;
     setLoading(false, '');
 
-    if (kDebugMode) debugPrint('TiuTiuApp: ${success ? 'Successfully' : 'Not'} authenticated');
+    if (kDebugMode)
+      debugPrint(
+          'TiuTiuApp: ${success ? 'Successfully' : 'Not'} authenticated');
 
-    return success;
-  }
-
-  Future<bool> loginWithFacebook({bool firstLogin = true}) async {
-    setLoading(true, AppLocalizations.of(Get.context!)!.loginInProgress);
-
-    final bool success = await _authService.loginWithFacebook(
-      firstLogin: firstLogin,
-    );
-
-    if (success) {
-      await loadUserData();
-      registerFirstLogin();
-      tiutiuUserController.checkUserRegistered();
-    }
-
-    setLoading(false, '');
     return success;
   }
 
@@ -311,7 +324,6 @@ class AuthController extends GetxController {
 
     if (success) {
       await loadUserData();
-      registerFirstLogin();
       tiutiuUserController.checkUserRegistered();
     }
 
@@ -327,7 +339,6 @@ class AuthController extends GetxController {
 
     if (success) {
       await loadUserData();
-      registerFirstLogin();
       tiutiuUserController.checkUserRegistered();
     }
 
@@ -352,7 +363,6 @@ class AuthController extends GetxController {
     if (user == null) {
       final hosters = [
         await trySignInWithEmailAndPassword(),
-        await tryLoginWithFacebook(),
       ];
 
       int count = 0;
@@ -377,7 +387,8 @@ class AuthController extends GetxController {
   }
 
   Future<bool> trySignInWithEmailAndPassword() async {
-    if (kDebugMode) debugPrint('TiuTiuApp: trying log in using email and password');
+    if (kDebugMode)
+      debugPrint('TiuTiuApp: trying log in using email and password');
     final emailPasswordAuthData = await LocalStorage.getDataUnderKey(
       key: LocalStorageKey.emailPasswordAuthData,
       mapper: EmailAndPasswordAuth(),
@@ -392,25 +403,8 @@ class AuthController extends GetxController {
       return loginWithEmailAndPassword();
     }
 
-    if (kDebugMode) debugPrint('TiuTiuApp: trying log in using email and password failed');
-    return false;
-  }
-
-  Future<bool> tryLoginWithFacebook() async {
-    if (kDebugMode) debugPrint('TiuTiuApp: trying log in with facebook');
-
-    final firstLogin = await LocalStorage.getBooleanUnderKey(
-      key: LocalStorageKey.facebookAuthData,
-      standardValue: true,
-    );
-
-    if (kDebugMode) debugPrint('TiuTiuApp: First Login? $firstLogin');
-
-    if (!firstLogin) {
-      return loginWithFacebook(firstLogin: firstLogin);
-    }
-
-    if (kDebugMode) debugPrint('TiuTiuApp: trying log in with facebook failed');
+    if (kDebugMode)
+      debugPrint('TiuTiuApp: trying log in using email and password failed');
     return false;
   }
 
@@ -421,13 +415,6 @@ class AuthController extends GetxController {
         AuthKeys.password.name: emailAndPasswordAuth.password!,
         AuthKeys.email.name: emailAndPasswordAuth.email!,
       },
-    );
-  }
-
-  void registerFirstLogin() {
-    LocalStorage.setBooleanUnderKey(
-      key: LocalStorageKey.facebookAuthData,
-      value: false,
     );
   }
 
@@ -472,10 +459,14 @@ class AuthController extends GetxController {
         );
 
         if (isAppleUser) {
-          tiutiuUserController.updateTiutiuUser(TiutiuUserEnum.email, user?.providerData.first.email);
-          tiutiuUserController.updateTiutiuUser(TiutiuUserEnum.emailVerified, true);
+          tiutiuUserController.updateTiutiuUser(
+              TiutiuUserEnum.email, user?.providerData.first.email);
+          tiutiuUserController.updateTiutiuUser(
+              TiutiuUserEnum.emailVerified, true);
         } else {
-          if (kDebugMode) debugPrint('TiuTiuApp: Updating emailVerified... ${user?.emailVerified}');
+          if (kDebugMode)
+            debugPrint(
+                'TiuTiuApp: Updating emailVerified... ${user?.emailVerified}');
           tiutiuUserController.updateTiutiuUser(
             TiutiuUserEnum.emailVerified,
             user?.emailVerified ?? false,
@@ -536,7 +527,8 @@ class AuthController extends GetxController {
       }
     } on FirebaseAuthException catch (exception) {
       crashlyticsController.reportAnError(
-        message: 'An error ocurred when updating user info: ${exception.message}',
+        message:
+            'An error ocurred when updating user info: ${exception.message}',
         exception: exception,
         stackTrace: StackTrace.current,
       );
@@ -548,7 +540,8 @@ class AuthController extends GetxController {
     if (userExists) {
       await tiutiuUserController.updateUserDataOnServer();
     } else {
-      await LocalStorage.setBooleanUnderKey(key: LocalStorageKey.termsAndConditions, value: true);
+      await LocalStorage.setBooleanUnderKey(
+          key: LocalStorageKey.termsAndConditions, value: true);
       await systemController.checkUserTermsAccepted();
     }
   }

@@ -48,12 +48,6 @@ android {
         System.getenv("GOOGLE_ADS_APPLICATION_ID")?.takeIf { it.isNotEmpty() }?.let {
             resValue("string", "google_ads_app_id", "\"$it\"")
         }
-        System.getenv("FACEBOOK_CLIENT_TOKEN")?.takeIf { it.isNotEmpty() }?.let {
-            resValue("string", "facebook_client_token", "\"$it\"")
-        }
-        System.getenv("FACEBOOK_APP_ID")?.takeIf { it.isNotEmpty() }?.let {
-            resValue("string", "facebook_app_id", "\"$it\"")
-        }
         // End Codemagic Vars
 
         resValue("string", "app_name", "\"Tiu, tiu\"")
@@ -90,5 +84,4 @@ flutter {
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.2")
-    implementation("com.facebook.android:facebook-android-sdk:[8,9)")
 }

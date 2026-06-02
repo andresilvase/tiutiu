@@ -6,7 +6,8 @@ class AuthService {
   FirebaseAuthProvider _firebaseAuthProvider = FirebaseAuthProvider.instance;
   User? get authUser => FirebaseAuthProvider.instance.firebaseAuthUser;
 
-  Future<void> sendWhatsAppCode(String countryCode, String phone, String code) async {
+  Future<void> sendWhatsAppCode(
+      String countryCode, String phone, String code) async {
     try {
       await _firebaseAuthProvider.sendWhatsAppCode(countryCode, phone, code);
     } on Exception catch (exception) {
@@ -21,12 +22,6 @@ class AuthService {
 
   Future<bool> loginWithGoogle({bool autologin = false}) async {
     return await _firebaseAuthProvider.loginWithGoogle(autologin: autologin);
-  }
-
-  Future<bool> loginWithFacebook({bool firstLogin = true}) async {
-    return await _firebaseAuthProvider.loginWithFacebook(
-      firstLogin: firstLogin,
-    );
   }
 
   Future<bool> loginWithApple() async {

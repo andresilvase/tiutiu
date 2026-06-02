@@ -585,9 +585,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fillAdData => 'Preencher dados da postagem';
 
   @override
-  String get facebook => 'Entrar com o Facebook';
-
-  @override
   String get endApp => 'Encerrar aplicação';
 
   @override

@@ -8,11 +8,15 @@ class TiuTiuAuthException extends TiuTiuException {
 
   Map<String, String> authErrors = {
     ErrorCodes.invalidToken:
-        'A sessão foi invalidada porque o usuário mudou sua senha ou o Facebook mudou a sessão por razões de segurança!',
-    ErrorCodes.errorTooManyRequests: 'Muitas tentativas em curto espaço de tempo. Tente novamente mais tarde.',
-    ErrorCodes.tooManyRequests: 'Muitas tentativas em curto espaço de tempo. Tente novamente mais tarde.',
-    ErrorCodes.emailAlreadyInUse: 'Esse e-mail já se encontra em nossa base de dados. Tente fazer login.',
-    ErrorCodes.weakPassword: 'Senha fraca. Escolha uma senha com no mínimo 6 dígitos.',
+        'A sessão foi invalidada porque o usuário mudou sua senha ou a sessão mudou por razões de segurança!',
+    ErrorCodes.errorTooManyRequests:
+        'Muitas tentativas em curto espaço de tempo. Tente novamente mais tarde.',
+    ErrorCodes.tooManyRequests:
+        'Muitas tentativas em curto espaço de tempo. Tente novamente mais tarde.',
+    ErrorCodes.emailAlreadyInUse:
+        'Esse e-mail já se encontra em nossa base de dados. Tente fazer login.',
+    ErrorCodes.weakPassword:
+        'Senha fraca. Escolha uma senha com no mínimo 6 dígitos.',
     ErrorCodes.accountExistsWithDifferentCredential:
         'Você já criou uma conta com este email. Tente fazer login com essa outra conta.',
     ErrorCodes.userNotFound: 'Nenhuma conta com esse acesso foi encontrada!',
@@ -35,8 +39,10 @@ class TiuTiuAuthException extends TiuTiuException {
 }
 
 class ErrorCodes {
-  static String get accountExistsWithDifferentCredential => 'account-exists-with-different-credential';
-  static String get weakPassword => 'ERROR_WEAK_PASSWORD : Password should be at least 6 characters';
+  static String get accountExistsWithDifferentCredential =>
+      'account-exists-with-different-credential';
+  static String get weakPassword =>
+      'ERROR_WEAK_PASSWORD : Password should be at least 6 characters';
   static String get operationNotAllowed => 'ERROR_OPERATION_NOT_ALLOWED';
   static String get errorTooManyRequests => 'ERROR_TOO_MANY_REQUESTS';
   static String get invalidToken => 'Error validating access token';

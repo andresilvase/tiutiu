@@ -2,6 +2,4 @@
 <resources>
     <string name="app_name">Tiutiu</string>
     <string name="google_ads_app_id">ca-app-pub-2837828701670824~5532122619</string>
-    <string name="facebook_app_id">5555424447911667</string>
-    <string name="facebook_client_token">1ea0f62bebebd8921b15b82af2c81a4a</string>
 </resources>

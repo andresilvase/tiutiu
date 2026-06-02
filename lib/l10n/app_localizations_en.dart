@@ -585,9 +585,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fillAdData => 'Fill in post data';
 
   @override
-  String get facebook => 'Continue with Facebook';
-
-  @override
   String get endApp => 'Terminate application';
 
   @override

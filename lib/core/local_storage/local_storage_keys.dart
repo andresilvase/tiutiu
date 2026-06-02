@@ -13,7 +13,6 @@ enum LocalStorageKey {
   userCountryChoice,
   lastKnowLocation,
   unloggedLikesMap,
-  facebookAuthData,
   sharedFilesMap,
   googleAuthData,
   lastLogoutTime,
