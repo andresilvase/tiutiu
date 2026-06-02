@@ -14,7 +14,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:math';
-import 'dart:io';
 
 class AuthHosters extends StatelessWidget with TiuTiuPopUp {
   const AuthHosters({super.key});
@@ -128,56 +127,60 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
   }
 
   Widget _authButtons(BuildContext context) {
-    return Container(
-      height: Get.height / 2.4,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Visibility(
-            visible: Platform.isIOS,
-            child: ButtonWide(
-              icon: FontAwesomeIcons.apple.data,
-              onPressed: () => _loginWithApple(context),
-              textColor: AppColors.black,
-              text: AppLocalizations.of(context)!.apple,
-              color: AppColors.white,
-              isToExpand: true,
-            ),
-          ),
-          ButtonWide(
-            icon: FontAwesomeIcons.envelope.data,
-            text: AppLocalizations.of(context)!.email,
-            color: Colors.grey,
-            isToExpand: true,
-            onPressed: () {
-              Get.toNamed(Routes.emailAndPassword);
-            },
-          ),
-          ButtonWide(
-            icon: FontAwesomeIcons.google.data,
-            text: AppLocalizations.of(context)!.google,
-            onPressed: () => _loginWithGoogle(context),
-            color: AppColors.danger,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        // Social login UI is intentionally disabled. Keep the implementation
+        // available so the providers can be restored without reconfiguration.
+        /*
+        Visibility(
+          visible: Platform.isIOS,
+          child: ButtonWide(
+            icon: FontAwesomeIcons.apple.data,
+            onPressed: () => _loginWithApple(context),
+            textColor: AppColors.black,
+            text: AppLocalizations.of(context)!.apple,
+            color: AppColors.white,
             isToExpand: true,
           ),
-          Visibility(
-            visible: Platform.isAndroid,
-            child: Column(
-              children: [
-                ButtonWide(
-                  icon: FontAwesomeIcons.facebook.data,
-                  onPressed: () => _loginWithFacebook(context),
-                  text: AppLocalizations.of(context)!.facebook,
-                  color: AppColors.info,
-                  isToExpand: true,
-                ),
-                SizedBox(height: 4.0.h),
-              ],
-            ),
+        ),
+        */
+        ButtonWide(
+          icon: FontAwesomeIcons.envelope.data,
+          text: AppLocalizations.of(context)!.email,
+          color: Colors.grey,
+          isToExpand: true,
+          onPressed: () {
+            Get.toNamed(Routes.emailAndPassword);
+          },
+        ),
+        /*
+        ButtonWide(
+          icon: FontAwesomeIcons.google.data,
+          text: AppLocalizations.of(context)!.google,
+          onPressed: () => _loginWithGoogle(context),
+          color: AppColors.danger,
+          isToExpand: true,
+        ),
+        Visibility(
+          visible: Platform.isAndroid,
+          child: Column(
+            children: [
+              ButtonWide(
+                icon: FontAwesomeIcons.facebook.data,
+                onPressed: () => _loginWithFacebook(context),
+                text: AppLocalizations.of(context)!.facebook,
+                color: AppColors.info,
+                isToExpand: true,
+              ),
+              SizedBox(height: 4.0.h),
+            ],
           ),
-          _continueAnonButton(context),
-        ],
-      ),
+        ),
+        */
+        _continueAnonButton(context),
+      ],
     );
   }
 
@@ -210,6 +213,7 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
     );
   }
 
+  // ignore: unused_element
   void _loginWithGoogle(BuildContext context) async {
     try {
       await authController.loginWithGoogle().then(
@@ -236,6 +240,7 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
     }
   }
 
+  // ignore: unused_element
   void _loginWithApple(BuildContext context) async {
     try {
       await authController.loginWithApple().then(
@@ -263,6 +268,7 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
     }
   }
 
+  // ignore: unused_element
   void _loginWithFacebook(BuildContext context) async {
     try {
       await authController.loginWithFacebook().then(

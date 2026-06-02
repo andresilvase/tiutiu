@@ -18,7 +18,6 @@ class MoreController extends GetxController {
     if (option == AppLocalizations.of(context)!.settings) Get.toNamed(Routes.settings);
     if (option == AppLocalizations.of(context)!.saveds) Get.toNamed(Routes.favorites);
     if (option == AppLocalizations.of(context)!.support) Get.toNamed(Routes.suportUs);
-    if (option == AppLocalizations.of(context)!.ourNet) Get.toNamed(Routes.followUs);
     if (option == AppLocalizations.of(context)!.about) Get.toNamed(Routes.about);
   }
 
@@ -31,32 +30,19 @@ class MoreController extends GetxController {
     _isLoading(false);
   }
 
-  List<String> get myProfileOptionsTile {
-    final bool enableDonateTile = adminRemoteConfigController.configs.enableDonateTile;
-    List<String> list = [..._myProfileOptionsTile];
-    if (!enableDonateTile) list.remove(AppLocalizations.of(Get.context!)!.support);
-    return list;
-  }
+  List<String> get myProfileOptionsTile => _myProfileOptionsTile;
 
   static List<String> _myProfileOptionsTile = [
     AppLocalizations.of(Get.context!)!.talkWithUs,
-    AppLocalizations.of(Get.context!)!.ourNet,
     AppLocalizations.of(Get.context!)!.saveds,
     AppLocalizations.of(Get.context!)!.myPosts,
     AppLocalizations.of(Get.context!)!.messages,
-    AppLocalizations.of(Get.context!)!.support,
     AppLocalizations.of(Get.context!)!.adoptioinForm,
     AppLocalizations.of(Get.context!)!.settings,
-    AppLocalizations.of(Get.context!)!.partners,
     AppLocalizations.of(Get.context!)!.about,
   ];
 
-  List<IconData> get myProfileOptionsIcon {
-    final bool enableDonateTile = adminRemoteConfigController.configs.enableDonateTile;
-    List<IconData> list = [..._myProfileOptionsIcon];
-    if (!enableDonateTile) list.remove(Icons.volunteer_activism_outlined);
-    return list;
-  }
+  List<IconData> get myProfileOptionsIcon => _myProfileOptionsIcon;
 
   final List<IconData> _myProfileOptionsIcon = [
     Icons.headset_mic_outlined,
@@ -64,10 +50,8 @@ class MoreController extends GetxController {
     Icons.bookmark_border_rounded,
     Icons.photo_outlined,
     Icons.forum_outlined,
-    Icons.volunteer_activism_outlined,
     Icons.list_alt_rounded,
     Icons.manage_accounts_outlined,
-    Icons.handshake_outlined,
     Icons.info_outline,
   ];
 }

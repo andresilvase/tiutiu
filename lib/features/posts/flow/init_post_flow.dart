@@ -3,7 +3,6 @@ import 'package:tiutiu/features/auth/views/authenticated_area.dart';
 import 'package:tiutiu/features/posts/views/select_post_type.dart';
 import 'package:tiutiu/features/auth/views/validated_area.dart';
 import 'package:tiutiu/features/auth/views/verify_email.dart';
-import 'package:tiutiu/features/auth/views/verify_phone.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:tiutiu/core/controllers/controllers.dart';
 import 'package:flutter/material.dart';
@@ -17,15 +16,17 @@ class InitPostFlow extends StatelessWidget {
     return Obx(
       () => AuthenticatedArea(
         child: ValidatedArea(
-          isValid: tiutiuUserController.tiutiuUser.emailVerified && tiutiuUserController.tiutiuUser.phoneVerified,
+          isValid: tiutiuUserController.tiutiuUser.emailVerified,
           validChild: Obx(
             () {
-              return currentLocationController.permissionStatus == PermissionStatus.granted
+              return currentLocationController.permissionStatus ==
+                      PermissionStatus.granted
                   ? SelectPostType()
-                  : LocalizationServiceAccessPermissionAccess(isInPostScreen: true);
+                  : LocalizationServiceAccessPermissionAccess(
+                      isInPostScreen: true);
             },
           ),
-          fallbackChild: !tiutiuUserController.tiutiuUser.emailVerified ? VerifyEmail() : VerifyPhone(),
+          fallbackChild: VerifyEmail(),
         ),
       ),
     );
