@@ -27,8 +27,11 @@ class RatingUs extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             buttons(
-              icon: Platform.isAndroid ? FontAwesomeIcons.googlePlay : FontAwesomeIcons.apple,
-              text: 'Avalie-nos\n${Platform.isAndroid ? 'PlayStore' : 'Apple Store'}',
+              icon: Platform.isAndroid
+                  ? FontAwesomeIcons.googlePlay.data
+                  : FontAwesomeIcons.apple.data,
+              text:
+                  'Avalie-nos\n${Platform.isAndroid ? 'PlayStore' : 'Apple Store'}',
               color: Platform.isAndroid ? Colors.green : Colors.black,
               urlToOpen: Platform.isAndroid
                   ? adminRemoteConfigController.configs.playStoreLink
@@ -38,7 +41,7 @@ class RatingUs extends StatelessWidget {
             buttons(
               urlToOpen: adminRemoteConfigController.configs.appTikTokLink,
               text: adminRemoteConfigController.configs.appTikTokUser,
-              icon: FontAwesomeIcons.tiktok,
+              icon: FontAwesomeIcons.tiktok.data,
               color: Color(0XFF000000),
               context: context,
               bigger: false,
@@ -46,7 +49,7 @@ class RatingUs extends StatelessWidget {
             buttons(
               urlToOpen: adminRemoteConfigController.configs.appInstagramLink,
               text: adminRemoteConfigController.configs.appInstagramUser,
-              icon: FontAwesomeIcons.instagram,
+              icon: FontAwesomeIcons.instagram.data,
               color: Color(0XFFE41F30),
               context: context,
               bigger: false,
@@ -54,7 +57,7 @@ class RatingUs extends StatelessWidget {
             buttons(
               urlToOpen: adminRemoteConfigController.configs.appFacebookLink,
               text: adminRemoteConfigController.configs.appFacebookUser,
-              icon: FontAwesomeIcons.facebook,
+              icon: FontAwesomeIcons.facebook.data,
               color: Colors.blue,
               context: context,
             ),

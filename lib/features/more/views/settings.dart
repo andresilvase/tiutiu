@@ -22,7 +22,8 @@ class _SettingsState extends State<Settings> with TiuTiuPopUp {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: DefaultBasicAppBar(text: AppLocalizations.of(context)!.settings),
+        appBar:
+            DefaultBasicAppBar(text: AppLocalizations.of(context)!.settings),
         body: Card(
           child: Column(
             children: [
@@ -31,7 +32,7 @@ class _SettingsState extends State<Settings> with TiuTiuPopUp {
                   children: [
                     SizedBox(height: 6.0.h),
                     CustomListTile(
-                      icon: FontAwesomeIcons.penToSquare,
+                      icon: FontAwesomeIcons.penToSquare.data,
                       onTap: () {
                         Get.toNamed(Routes.editProfile);
                       },
@@ -39,7 +40,7 @@ class _SettingsState extends State<Settings> with TiuTiuPopUp {
                     ),
                     Divider(color: Colors.transparent, height: 2),
                     CustomListTile(
-                      icon: FontAwesomeIcons.earthAmericas,
+                      icon: FontAwesomeIcons.earthAmericas.data,
                       text: AppLocalizations.of(context)!.setMyProfileAsONG,
                       badgeText: AppLocalizations.of(context)!.commingSoon,
                       onTap: () {},
@@ -63,7 +64,7 @@ class _SettingsState extends State<Settings> with TiuTiuPopUp {
                     ),
                     Divider(color: Colors.transparent, height: 2),
                     CustomListTile(
-                      icon: FontAwesomeIcons.arrowRightFromBracket,
+                      icon: FontAwesomeIcons.arrowRightFromBracket.data,
                       onTap: () {
                         _exitApp();
                       },
@@ -104,7 +105,9 @@ class _SettingsState extends State<Settings> with TiuTiuPopUp {
       },
       secondaryAction: () {
         Get.back();
-        authController.signOut().then((value) => Get.offAllNamed(Routes.startScreen));
+        authController
+            .signOut()
+            .then((value) => Get.offAllNamed(Routes.startScreen));
       },
       backGroundColor: AppColors.warning,
       barrierDismissible: false,

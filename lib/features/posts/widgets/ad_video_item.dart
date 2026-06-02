@@ -43,7 +43,7 @@ class AddVideoItem extends StatelessWidget with Pickers {
           child: Stack(
             children: [
               Icon(
-                FontAwesomeIcons.video,
+                FontAwesomeIcons.video.data,
                 color: hasError ? AppColors.danger : AppColors.white,
                 size: 72.0.h,
               ),
@@ -51,7 +51,7 @@ class AddVideoItem extends StatelessWidget with Pickers {
                 left: 16.0.h,
                 top: 24.0.h,
                 child: Icon(
-                  FontAwesomeIcons.plus,
+                  FontAwesomeIcons.plus.data,
                   color: hasError ? AppColors.danger : Colors.blueGrey,
                   size: 24.0.h,
                 ),

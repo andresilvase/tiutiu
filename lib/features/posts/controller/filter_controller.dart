@@ -55,11 +55,11 @@ class FilterController extends GetxController {
   ];
 
   final List<IconData> filterTypeIcon = [
-    FontAwesomeIcons.bullseye,
-    FontAwesomeIcons.dog,
-    FontAwesomeIcons.cat,
-    FontAwesomeIcons.kiwiBird,
-    FontAwesomeIcons.staffSnake,
+    FontAwesomeIcons.bullseye.data,
+    FontAwesomeIcons.dog.data,
+    FontAwesomeIcons.cat.data,
+    FontAwesomeIcons.kiwiBird.data,
+    FontAwesomeIcons.staffSnake.data,
   ];
 
   List<String> orderTypeList(bool hasAccessToLocal) {

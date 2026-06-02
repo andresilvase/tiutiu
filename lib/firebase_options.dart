@@ -52,23 +52,24 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: String.fromEnvironment('FIREBASE_OPTIONS_ANDROID_API_KEY'),
-    appId: String.fromEnvironment('FIREBASE_OPTIONS_ANDROID_APP_ID'),
-    databaseURL: 'https://$projectId.firebaseio.com',
-    storageBucket: '$projectId.appspot.com',
-    messagingSenderId: messagingSenderId,
-    projectId: '$projectId',
+    apiKey: 'AIzaSyAX9SWKqAIAZ0UvUGW8p8jtkhf4_gBzFKo',
+    appId: '1:791022711249:android:c455c3e55aa03aa83170f0',
+    messagingSenderId: '791022711249',
+    projectId: 'tiutiu-5cd14',
+    databaseURL: 'https://tiutiu-5cd14.firebaseio.com',
+    storageBucket: 'tiutiu-5cd14.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    androidClientId: String.fromEnvironment('FIREBASE_OPTIONS_IOS_ANDROID_CLIENT_ID'),
-    iosClientId: String.fromEnvironment('FIREBASE_OPTIONS_IOS_IOS_CLIENT_ID'),
-    apiKey: String.fromEnvironment('FIREBASE_OPTIONS_IOS_API_KEY'),
-    appId: String.fromEnvironment('FIREBASE_OPTIONS_IOS_APP_ID'),
-    databaseURL: 'https://$projectId.firebaseio.com',
-    iosBundleId: 'com.anjasolutions.tiutiuapp',
-    storageBucket: '$projectId.appspot.com',
-    messagingSenderId: messagingSenderId,
-    projectId: '$projectId',
+    apiKey: 'AIzaSyCkWxBe5Mvka6c8QFvjAl2JABvegobovT8',
+    appId: '1:791022711249:ios:3434c25bdfa4207c3170f0',
+    messagingSenderId: '791022711249',
+    projectId: 'tiutiu-5cd14',
+    databaseURL: 'https://tiutiu-5cd14.firebaseio.com',
+    storageBucket: 'tiutiu-5cd14.appspot.com',
+    androidClientId: '791022711249-4tcgfbn19l5k6cf8t2qblh0t66lon5d6.apps.googleusercontent.com',
+    iosClientId: '791022711249-53r4bq8512mrrem5e73hbivkfk8ammeo.apps.googleusercontent.com',
+    iosBundleId: 'com.anjasolutions.tiutiuapp.ImageNotification',
   );
+
 }

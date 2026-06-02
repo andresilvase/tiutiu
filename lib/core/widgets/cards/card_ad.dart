@@ -35,7 +35,8 @@ class _CardAdState extends State<CardAd> {
 
   Widget likeAnimation() {
     return AnimatedOpacity(
-      child: Icon(FontAwesomeIcons.solidHeart, color: AppColors.white.withValues(alpha: .9), size: 72),
+      child: Icon(FontAwesomeIcons.solidHeart.data,
+          color: AppColors.white.withValues(alpha: .9), size: 72),
       duration: Duration(milliseconds: 250),
       opacity: likeAnimationOpcaity,
     );

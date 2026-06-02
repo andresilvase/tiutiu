@@ -1,6 +1,6 @@
-# analyzer:
-#   exclude:
-#     -lib/src/locations.g.dart
+analyzer:
+  exclude:
+    - third_party/better_player/**
 
 linter:
   rules:

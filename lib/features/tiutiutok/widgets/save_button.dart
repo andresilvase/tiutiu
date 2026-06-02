@@ -34,7 +34,7 @@ class SaveButton extends StatelessWidget {
               CircleAvatar(
                 backgroundColor: Colors.transparent,
                 child: Icon(
-                  FontAwesomeIcons.solidBookmark,
+                  FontAwesomeIcons.solidBookmark.data,
                   size: 32.0,
                   color: isSaved ? AppColors.pink : AppColors.whiteIce,
                 ),

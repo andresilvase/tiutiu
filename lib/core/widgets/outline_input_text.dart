@@ -77,7 +77,9 @@ class OutlinedInputText extends StatelessWidget {
                     onPasswordVisibilityChange?.call();
                   },
                   icon: Icon(
-                    showPassword ? FontAwesomeIcons.eye : FontAwesomeIcons.eyeSlash,
+                    showPassword
+                        ? FontAwesomeIcons.eye.data
+                        : FontAwesomeIcons.eyeSlash.data,
                     color: AppColors.white.withAlpha(180),
                   ),
                 )
@@ -86,7 +88,9 @@ class OutlinedInputText extends StatelessWidget {
           counterText: showCounterText ? null : '',
           labelText: labelText,
           hintStyle: TextStyle(
-            color: textColor != null ? textColor!.withValues(alpha: .7) : AppColors.white,
+            color: textColor != null
+                ? textColor!.withValues(alpha: .7)
+                : AppColors.white,
             fontWeight: FontWeight.w600,
             fontSize: fontSize ?? 18.0,
           ),

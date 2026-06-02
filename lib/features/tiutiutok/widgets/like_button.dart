@@ -46,7 +46,7 @@ class _LoggedLikeButton extends StatelessWidget {
               CircleAvatar(
                 backgroundColor: Colors.transparent,
                 child: Icon(
-                  FontAwesomeIcons.solidHeart,
+                  FontAwesomeIcons.solidHeart.data,
                   size: 32.0,
                   color: liked ? AppColors.pink : AppColors.whiteIce,
                 ),
@@ -103,7 +103,7 @@ class _UnloggedLikeButton extends StatelessWidget {
                   CircleAvatar(
                     backgroundColor: Colors.transparent,
                     child: Icon(
-                      FontAwesomeIcons.solidHeart,
+                      FontAwesomeIcons.solidHeart.data,
                       size: 32.0,
                       color: liked ? AppColors.pink : AppColors.whiteIce,
                     ),

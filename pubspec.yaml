@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -18,10 +18,10 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.6
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
+  sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
-  flutter_localizations: 
+  flutter_localizations:
     sdk: flutter
   flutter:
     sdk: flutter
@@ -30,51 +30,51 @@ dependencies:
   mask_text_input_formatter: ^2.4.0
   flutter_native_splash: ^2.0.0
   flutter_facebook_auth: ^7.0.1
-  font_awesome_flutter: ^10.2.1
+  font_awesome_flutter: ^11.0.0
   flutter_screenutil: ^5.5.3+2
   cached_network_image: ^3.2.1
   flutter_chat_bubble: ^2.0.0
   shared_preferences: ^2.0.15
-  permission_handler: ^11.1.0
-  sign_in_with_apple: ^6.1.1
-  loading_animations: ^2.2.0  
+  permission_handler: ^12.0.3
+  sign_in_with_apple: ^8.1.0
+  loading_animations: ^2.2.0
   flutter_speed_dial: ^7.0.0
-  connectivity_plus: ^6.0.3    
-  google_mobile_ads: ^5.1.0
-  package_info_plus: ^8.0.0
-  device_info_plus: ^10.1.0
+  connectivity_plus: ^7.1.1
+  google_mobile_ads: ^8.0.0
+  package_info_plus: ^10.1.0
+  device_info_plus: ^13.1.0
   webview_flutter: ^4.0.6
   pin_code_fields: ^8.0.1
   flutter_pdfview: ^1.2.5
-  carousel_slider: ^5.0.0  
+  carousel_slider: ^5.0.0
   cupertino_icons: ^1.0.5
   auto_size_text: ^3.0.0
   google_sign_in: ^6.1.6
   image_picker: ^1.0.4
-  app_settings: ^5.1.1
-  screenshot: ^3.0.0  
+  app_settings: ^7.0.0
+  screenshot: ^3.0.0
   better_player:
     git:
-      url: https://github.com/AndreDrummer/betterplayer.git
-      ref: fix-android-and-ios  
-  brasil_fields: ^1.6.0  
-  google_fonts: ^6.2.1
+      url: https://github.com/andresilvase/betterplayer.git
+      ref: fix-android-and-ios
+  brasil_fields: ^1.6.0
+  google_fonts: ^8.1.0
   video_player: ^2.9.1
   url_launcher: ^6.1.5
-  share_plus: ^10.0.2
-  geolocator: ^13.0.1
-  geocoding: ^3.0.0    
+  share_plus: ^13.1.0
+  geolocator: ^14.0.2
+  geocoding: ^4.0.0
   provider: ^6.0.3
   sqflite: ^2.0.3
   lottie: ^3.1.2
   uuid: ^4.2.1
-  get: ^4.6.5  
+  get: ^4.6.5
   pdf: ^3.8.4
   dio: ^5.3.4
-  intl: any    
+  intl: any
   chewie:
 
-  firebase_core_platform_interface: ^5.3.0
+  firebase_core_platform_interface: ^6.0.3
   firebase_dynamic_links: ^6.0.7
   firebase_crashlytics: ^4.1.2
   firebase_analytics: ^11.3.2
@@ -100,14 +100,13 @@ dev_dependencies:
   pedantic: any
 
 flutter:
-  uses-material-design: true  
+  uses-material-design: true
   generate: true
-  assets:    
+  assets:
     - assets/startscreen/
     - assets/animations/
     - assets/images/
     - assets/json/
-
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

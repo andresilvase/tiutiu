@@ -26,7 +26,7 @@ class AdViews extends StatelessWidget {
               children: [
                 Icon(
                   color: Colors.grey[700],
-                  FontAwesomeIcons.solidEye,
+                  FontAwesomeIcons.solidEye.data,
                   size: 7.0.h,
                 ),
                 Padding(

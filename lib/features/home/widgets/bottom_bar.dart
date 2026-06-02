@@ -40,7 +40,8 @@ class _BottomBarState extends State<BottomBar> {
                 }
                 homeController.setIndex(index);
               },
-              selectedLabelStyle: isTiuTokIndex ? GoogleFonts.miltonianTattoo() : null,
+              selectedLabelStyle:
+                  isTiuTokIndex ? GoogleFonts.miltonianTattoo() : null,
               currentIndex: homeController.bottomBarIndex,
               selectedItemColor: AppColors.primary,
               unselectedItemColor: AppColors.white,
@@ -58,7 +59,8 @@ class _BottomBarState extends State<BottomBar> {
                       child: Stack(
                         children: [
                           index == 1
-                              ? tiuTokIcon(homeController.bottomBarIndex == index)
+                              ? tiuTokIcon(
+                                  homeController.bottomBarIndex == index)
                               : Icon(
                                   _bottomBarIcons.elementAt(index),
                                   size: 20.0.h,
@@ -86,12 +88,15 @@ class _BottomBarState extends State<BottomBar> {
   ];
 
   final List<IconData> _bottomBarIcons = [
-    FontAwesomeIcons.paw,
-    FontAwesomeIcons.play,
-    FontAwesomeIcons.squarePlus,
-    adminRemoteConfigController.configs.showShopButton ? Icons.shopping_bag_outlined : FontAwesomeIcons.searchengin,
+    FontAwesomeIcons.paw.data,
+    FontAwesomeIcons.play.data,
+    FontAwesomeIcons.squarePlus.data,
+    adminRemoteConfigController.configs.showShopButton
+        ? Icons.shopping_bag_outlined
+        : FontAwesomeIcons.searchengin.data,
     Icons.menu,
   ];
 
-  Widget tiuTokIcon(bool isActive) => TiutiutokIcon(color: isActive ? AppColors.primary : AppColors.white);
+  Widget tiuTokIcon(bool isActive) =>
+      TiutiutokIcon(color: isActive ? AppColors.primary : AppColors.white);
 }

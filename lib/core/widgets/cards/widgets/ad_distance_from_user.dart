@@ -18,11 +18,13 @@ class AdDistanceFromUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final bool isBannerCardVisibilityKind = postsController.cardVisibilityKind == CardVisibilityKind.banner;
+      final bool isBannerCardVisibilityKind =
+          postsController.cardVisibilityKind == CardVisibilityKind.banner;
       return Visibility(
         visible: !systemController.properties.accessLocationDenied,
         child: Padding(
-          padding: EdgeInsets.only(top: isBannerCardVisibilityKind ? 4.0.h : 0.0.h),
+          padding:
+              EdgeInsets.only(top: isBannerCardVisibilityKind ? 4.0.h : 0.0.h),
           child: Row(
             children: [
               AutoSizeTexts.autoSizeText10(
@@ -35,7 +37,7 @@ class AdDistanceFromUser extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(bottom: 2.0.h),
                 child: Icon(
-                  FontAwesomeIcons.locationDot,
+                  FontAwesomeIcons.locationDot.data,
                   color: Colors.grey[700],
                   size: 7.0.h,
                 ),

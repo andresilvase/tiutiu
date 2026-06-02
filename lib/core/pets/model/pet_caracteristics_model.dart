@@ -21,7 +21,8 @@ class PetCaracteristics {
   IconData icon;
   String title;
 
-  static List<PetCaracteristics> petCaracteristics(BuildContext context, Pet pet) {
+  static List<PetCaracteristics> petCaracteristics(
+      BuildContext context, Pet pet) {
     return <PetCaracteristics>[
           PetCaracteristics(
             icon: OtherFunctions.getIconFromPetType(context, pet.type),
@@ -29,7 +30,9 @@ class PetCaracteristics {
             content: pet.type,
           ),
           PetCaracteristics(
-            icon: pet.gender == AppLocalizations.of(context)!.female ? Icons.female : Icons.male,
+            icon: pet.gender == AppLocalizations.of(context)!.female
+                ? Icons.female
+                : Icons.male,
             title: AppLocalizations.of(context)!.sex,
             content: pet.gender,
           ),
@@ -50,14 +53,14 @@ class PetCaracteristics {
           ),
           PetCaracteristics(
             title: AppLocalizations.of(context)!.health,
-            icon: FontAwesomeIcons.heartPulse,
+            icon: FontAwesomeIcons.heartPulse.data,
             content: pet.health == AppLocalizations.of(context)!.chronicDisease
                 ? '${pet.health}:\n${pet.chronicDiseaseInfo}'
                 : pet.health,
           ),
           PetCaracteristics(
             content: '${pet.ageYear}a ${pet.ageMonth}m',
-            icon: FontAwesomeIcons.cakeCandles,
+            icon: FontAwesomeIcons.cakeCandles.data,
             title: AppLocalizations.of(context)!.age,
           ),
         ] +

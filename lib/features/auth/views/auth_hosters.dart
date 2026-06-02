@@ -136,7 +136,7 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
           Visibility(
             visible: Platform.isIOS,
             child: ButtonWide(
-              icon: FontAwesomeIcons.apple,
+              icon: FontAwesomeIcons.apple.data,
               onPressed: () => _loginWithApple(context),
               textColor: AppColors.black,
               text: AppLocalizations.of(context)!.apple,
@@ -145,7 +145,7 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
             ),
           ),
           ButtonWide(
-            icon: FontAwesomeIcons.envelope,
+            icon: FontAwesomeIcons.envelope.data,
             text: AppLocalizations.of(context)!.email,
             color: Colors.grey,
             isToExpand: true,
@@ -154,7 +154,7 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
             },
           ),
           ButtonWide(
-            icon: FontAwesomeIcons.google,
+            icon: FontAwesomeIcons.google.data,
             text: AppLocalizations.of(context)!.google,
             onPressed: () => _loginWithGoogle(context),
             color: AppColors.danger,
@@ -165,7 +165,7 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
             child: Column(
               children: [
                 ButtonWide(
-                  icon: FontAwesomeIcons.facebook,
+                  icon: FontAwesomeIcons.facebook.data,
                   onPressed: () => _loginWithFacebook(context),
                   text: AppLocalizations.of(context)!.facebook,
                   color: AppColors.info,
@@ -292,7 +292,8 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
 
   void goToHome() {
     final bottomIndex = homeController.bottomBarIndex;
-    if (kDebugMode) debugPrint('TiuTiuApp: Bottom Index == 0? ${bottomIndex == 0}');
+    if (kDebugMode)
+      debugPrint('TiuTiuApp: Bottom Index == 0? ${bottomIndex == 0}');
 
     if (systemController.properties.internetConnected) {
       Get.offAndToNamed(Routes.home);

@@ -24,7 +24,8 @@ class TopBar extends StatefulWidget {
 }
 
 class _TopBarState extends State<TopBar> {
-  final _fieldController = TextEditingController(text: filterController.getParams.name);
+  final _fieldController =
+      TextEditingController(text: filterController.getParams.name);
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +45,15 @@ class _TopBarState extends State<TopBar> {
               Obx(
                 () => Visibility(
                   replacement: SponsoredHorizontalList(),
-                  visible: filterController.filterParams.value.orderBy == AppLocalizations.of(context)!.name,
+                  visible: filterController.filterParams.value.orderBy ==
+                      AppLocalizations.of(context)!.name,
                   child: _userSearchInput(context, _fieldController),
                 ),
               ),
               WarningBanner(
-                showBannerCondition: !systemController.properties.internetConnected && postsController.posts.isNotEmpty,
+                showBannerCondition:
+                    !systemController.properties.internetConnected &&
+                        postsController.posts.isNotEmpty,
                 textWarning: AppLocalizations.of(context)!.noConnectionWarning,
                 padding: EdgeInsets.all(2.0.h),
                 replacement: SizedBox.shrink(),
@@ -65,7 +69,8 @@ class _TopBarState extends State<TopBar> {
     );
   }
 
-  Widget _userSearchInput(BuildContext context, TextEditingController fieldController) {
+  Widget _userSearchInput(
+      BuildContext context, TextEditingController fieldController) {
     return Column(
       children: [
         Divider(),
@@ -111,7 +116,8 @@ class _TopBarState extends State<TopBar> {
         children: [
           Row(
             children: [
-              AutoSizeTexts.autoSizeText18(_greeting(), textAlign: TextAlign.left),
+              AutoSizeTexts.autoSizeText18(_greeting(),
+                  textAlign: TextAlign.left),
               SizedBox(width: 4.0.w),
               _greetingIcon(),
             ],
@@ -172,23 +178,28 @@ class _TopBarState extends State<TopBar> {
   String _greeting() {
     bool isLogged = authController.userExists;
     String? userName = isLogged
-        ? tiutiuUserController.tiutiuUser.displayName?.replaceAll(',', ' ').replaceAll('.', ' ').split(' ').first
+        ? tiutiuUserController.tiutiuUser.displayName
+            ?.replaceAll(',', ' ')
+            .replaceAll('.', ' ')
+            .split(' ')
+            .first
         : null;
 
     String greeting = OtherFunctions.getGreetingBasedOnTime(context);
 
-    return '${userName.isNotEmptyNeighterNull() ? greeting + ', $userName' : greeting}' + '!';
+    return '${userName.isNotEmptyNeighterNull() ? greeting + ', $userName' : greeting}' +
+        '!';
   }
 
   Widget _greetingIcon() {
     final now = DateTime.now();
 
     if (now.hour < 12) {
-      return Icon(FontAwesomeIcons.cloudSun, color: Colors.amberAccent);
+      return Icon(FontAwesomeIcons.cloudSun.data, color: Colors.amberAccent);
     } else if (now.hour < 18) {
-      return Icon(FontAwesomeIcons.solidSun, color: Colors.yellow);
+      return Icon(FontAwesomeIcons.solidSun.data, color: Colors.yellow);
     } else {
-      return Icon(FontAwesomeIcons.cloudMoon, color: Colors.grey[800]);
+      return Icon(FontAwesomeIcons.cloudMoon.data, color: Colors.grey[800]);
     }
   }
 

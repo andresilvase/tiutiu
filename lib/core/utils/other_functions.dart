@@ -86,7 +86,8 @@ class OtherFunctions {
     return photoName;
   }
 
-  static void navigateToAnnouncerDetail(TiutiuUser user, {bool popAndPush = false}) {
+  static void navigateToAnnouncerDetail(TiutiuUser user,
+      {bool popAndPush = false}) {
     if (popAndPush)
       Get.off(() => AnnouncerProfile(user: user));
     else
@@ -95,13 +96,15 @@ class OtherFunctions {
 
   static IconData getIconFromPetType(BuildContext context, String type) {
     final Map<String, dynamic> petIconType = {
-      AppLocalizations.of(context)!.bird: FontAwesomeIcons.b,
-      AppLocalizations.of(context)!.other: FontAwesomeIcons.question,
-      AppLocalizations.of(context)!.dog: FontAwesomeIcons.dog,
-      AppLocalizations.of(context)!.cat: FontAwesomeIcons.cat,
+      AppLocalizations.of(context)!.bird: FontAwesomeIcons.b.data,
+      AppLocalizations.of(context)!.other: FontAwesomeIcons.question.data,
+      AppLocalizations.of(context)!.dog: FontAwesomeIcons.dog.data,
+      AppLocalizations.of(context)!.cat: FontAwesomeIcons.cat.data,
     };
 
-    return petIconType.containsKey(type) ? petIconType[type] : FontAwesomeIcons.dog;
+    return petIconType.containsKey(type)
+        ? petIconType[type]
+        : FontAwesomeIcons.dog.data;
   }
 
   static Future<String?> getVideoUrlDownload({
@@ -162,12 +165,15 @@ class OtherFunctions {
     try {
       var uploadTask = ref.putFile(file);
       await uploadTask.whenComplete(() {
-        if (kDebugMode) debugPrint('TiuTiuApp: File $fileName Successfully Uploaded');
+        if (kDebugMode)
+          debugPrint('TiuTiuApp: File $fileName Successfully Uploaded');
       });
 
       fileURL = await ref.getDownloadURL();
     } on FirebaseException catch (error) {
-      if (kDebugMode) debugPrint('TiuTiuApp: Ocorreu um erro ao fazer upload do arquivo $fileName: $error.');
+      if (kDebugMode)
+        debugPrint(
+            'TiuTiuApp: Ocorreu um erro ao fazer upload do arquivo $fileName: $error.');
       rethrow;
     }
 
@@ -184,24 +190,30 @@ class OtherFunctions {
 
       if (kDebugMode) debugPrint('TiuTiuApp: Shared Files Map $sharedFilesMap');
 
-      if (sharedFilesMap != null && (sharedFilesMap as Map).containsKey(post.uid)) {
-        if (kDebugMode) debugPrint('TiuTiuApp: Shared Files Map was NOT null $sharedFilesMap');
+      if (sharedFilesMap != null &&
+          (sharedFilesMap as Map).containsKey(post.uid)) {
+        if (kDebugMode)
+          debugPrint(
+              'TiuTiuApp: Shared Files Map was NOT null $sharedFilesMap');
         file = sharedFilesMap[post.uid];
       } else {
-        if (kDebugMode) debugPrint('TiuTiuApp: Shared Files Map is null $sharedFilesMap');
+        if (kDebugMode)
+          debugPrint('TiuTiuApp: Shared Files Map is null $sharedFilesMap');
         file = await FileDownloader.save(
           filename: post.name ?? '${post.type}',
           fileUrl: post.photos[0],
           type: FileType.images,
         );
 
-        if (kDebugMode) debugPrint('TiuTiuApp: Post First Image downloaded $file');
+        if (kDebugMode)
+          debugPrint('TiuTiuApp: Post First Image downloaded $file');
 
         Map<String, dynamic> map = {};
         if (sharedFilesMap != null) map.addAll(sharedFilesMap);
 
         map.putIfAbsent(post.uid!, () => file);
-        if (kDebugMode) debugPrint('TiuTiuApp: Post First Image will be cached $map');
+        if (kDebugMode)
+          debugPrint('TiuTiuApp: Post First Image will be cached $map');
 
         await LocalStorage.setValueUnderLocalStorageKey(
           key: LocalStorageKey.sharedFilesMap,
@@ -213,7 +225,9 @@ class OtherFunctions {
 
       return file;
     } catch (exception) {
-      if (kDebugMode) debugPrint('TiuTiuApp: An error occured when trying get post image to share: $exception.');
+      if (kDebugMode)
+        debugPrint(
+            'TiuTiuApp: An error occured when trying get post image to share: $exception.');
       rethrow;
     }
   }
@@ -240,9 +254,15 @@ class OtherFunctions {
 
     String typeIcon = _getPetTypeIcon(context, type);
 
-    if (kDebugMode) debugPrint('TiuTiuApp: DynamicLinkPrefix ${tiuTiuDynamicLinkParameters.dynamicLinkPrefix}');
-    if (kDebugMode) debugPrint('TiuTiuApp: AppStoreId ${tiuTiuDynamicLinkParameters.iosParameters.appStoreId}');
-    if (kDebugMode) debugPrint('TiuTiuApp: UriPrefix ${tiuTiuDynamicLinkParameters.uriPrefix}');
+    if (kDebugMode)
+      debugPrint(
+          'TiuTiuApp: DynamicLinkPrefix ${tiuTiuDynamicLinkParameters.dynamicLinkPrefix}');
+    if (kDebugMode)
+      debugPrint(
+          'TiuTiuApp: AppStoreId ${tiuTiuDynamicLinkParameters.iosParameters.appStoreId}');
+    if (kDebugMode)
+      debugPrint(
+          'TiuTiuApp: UriPrefix ${tiuTiuDynamicLinkParameters.uriPrefix}');
 
     final dynamicLinkParams = DynamicLinkParameters(
       androidParameters: tiuTiuDynamicLinkParameters.androidParameters,
@@ -251,19 +271,22 @@ class OtherFunctions {
       link: tiuTiuDynamicLinkParameters.link,
     );
 
-    final dynamicLink = await FirebaseDynamicLinks.instance.buildShortLink(dynamicLinkParams);
+    final dynamicLink =
+        await FirebaseDynamicLinks.instance.buildShortLink(dynamicLinkParams);
 
     String headerText =
         'Olha ${_getPetGender(context, type, gender).trim()}  ${typeIcon.trim()} que eu vi no app *Tiu, tiu*:';
 
     String bodyText = '*$postTitle*\n⚧️ $gender\n🎂 $age\n📐 $size\n🎨 $color';
 
-    String footerText = 'Tem mais detalhes dele nesse link: ${dynamicLink.shortUrl}.';
+    String footerText =
+        'Tem mais detalhes dele nesse link: ${dynamicLink.shortUrl}.';
 
     return '$headerText\n\n$bodyText\n\n$footerText';
   }
 
-  static String _getPetGender(BuildContext context, String type, String gender) {
+  static String _getPetGender(
+      BuildContext context, String type, String gender) {
     if (gender == AppLocalizations.of(context)!.female) {
       if (type == AppLocalizations.of(context)!.dog) {
         return 'essa cachorra';
@@ -308,14 +331,17 @@ class OtherFunctions {
 
   static String getWhatsAppInitialMessage(BuildContext context, Post post) {
     String petType = (post as Pet).type;
-    String greeting = 'Olá, ${getGreetingBasedOnTime(context).toLowerCase()}! Tudo bem?\n\n';
+    String greeting =
+        'Olá, ${getGreetingBasedOnTime(context).toLowerCase()}! Tudo bem?\n\n';
     String message =
         'Eu gostaria de ter mais informações sobre ${post.name}, ${_getPetGender(context, petType, post.gender)} ${_getPetTypeIcon(context, petType)} que você postou no app *Tiu, tiu*!';
     return '$greeting$message';
   }
 
   static bool isSmallerThan(String version1, String version2) {
-    if (kDebugMode) debugPrint('TiuTiuApp: Is to close app? v1: $version1 <--> v2: $version2');
+    if (kDebugMode)
+      debugPrint(
+          'TiuTiuApp: Is to close app? v1: $version1 <--> v2: $version2');
 
     final int v1Major = int.tryParse(version1.split('.').first) ?? 0;
     final int v1Minor = int.tryParse(version1.split('.')[1]) ?? 0;

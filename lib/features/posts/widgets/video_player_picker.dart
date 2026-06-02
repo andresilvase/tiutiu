@@ -37,7 +37,10 @@ class _VideoPlayerPickerState extends State<VideoPlayerPicker> {
 
     _betterPlayerController = BetterPlayerController(
       BetterPlayerConfiguration(
-        aspectRatio: Get.height > 999 || (Dimensions.isSmallDevice() || Dimensions.isXSmallDevice()) ? 1.3 : 1.0,
+        aspectRatio: Get.height > 999 ||
+                (Dimensions.isSmallDevice() || Dimensions.isXSmallDevice())
+            ? 1.3
+            : 1.0,
         allowedScreenSleep: false,
         controlsConfiguration: BetterPlayerControlsConfiguration(
           progressBarHandleColor: AppColors.primary,
@@ -54,16 +57,21 @@ class _VideoPlayerPickerState extends State<VideoPlayerPicker> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(FontAwesomeIcons.triangleExclamation, color: AppColors.white),
+                Icon(FontAwesomeIcons.triangleExclamation.data,
+                    color: AppColors.white),
                 SizedBox(height: 4.0.h),
-                AutoSizeTexts.autoSizeText14(AppLocalizations.of(context)!.videoPlayerError, color: AppColors.white),
+                AutoSizeTexts.autoSizeText14(
+                    AppLocalizations.of(context)!.videoPlayerError,
+                    color: AppColors.white),
                 SizedBox(height: 16.0.h),
                 TextButton(
                   onPressed: () {
                     _betterPlayerController.retryDataSource();
                     setState(() {});
                   },
-                  child: AutoSizeTexts.autoSizeText12(AppLocalizations.of(context)!.tryAgain, color: AppColors.white),
+                  child: AutoSizeTexts.autoSizeText12(
+                      AppLocalizations.of(context)!.tryAgain,
+                      color: AppColors.white),
                 )
               ],
             ),

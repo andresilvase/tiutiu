@@ -12,11 +12,16 @@ class VideoError extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(FontAwesomeIcons.triangleExclamation, color: AppColors.white),
+          Icon(FontAwesomeIcons.triangleExclamation.data,
+              color: AppColors.white),
           SizedBox(height: 4.0.h),
-          AutoSizeTexts.autoSizeText14(AppLocalizations.of(context)!.videoPlayerError, color: AppColors.white),
+          AutoSizeTexts.autoSizeText14(
+              AppLocalizations.of(context)!.videoPlayerError,
+              color: AppColors.white),
           SizedBox(height: 8.0.h),
-          AutoSizeTexts.autoSizeText14(AppLocalizations.of(context)!.verifyInternetConnection, color: AppColors.white),
+          AutoSizeTexts.autoSizeText14(
+              AppLocalizations.of(context)!.verifyInternetConnection,
+              color: AppColors.white),
         ],
       ),
     );

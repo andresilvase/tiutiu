@@ -25,7 +25,8 @@ class WhatsAppShareButton extends StatelessWidget {
             backgroundColor: AppColors.primary,
             child: Padding(
               padding: EdgeInsets.only(left: 1.0.w, bottom: 0.5.h),
-              child: Icon(FontAwesomeIcons.whatsapp, color: AppColors.white, size: 16.h),
+              child: Icon(FontAwesomeIcons.whatsapp.data,
+                  color: AppColors.white, size: 16.h),
             ),
           ),
           StreamBuilder<int>(

@@ -31,7 +31,9 @@ class _VerifyPhoneState extends State<VerifyPhone> {
 
   @override
   void initState() {
-    authController.verifyIfWhatsappTokenIsStillValid().then((_) => startTimer());
+    authController
+        .verifyIfWhatsappTokenIsStillValid()
+        .then((_) => startTimer());
     super.initState();
   }
 
@@ -74,7 +76,8 @@ class _VerifyPhoneState extends State<VerifyPhone> {
 
   @override
   Widget build(BuildContext context) {
-    final String? number = Formatters.removeParaenthesisFromNumber(tiutiuUserController.tiutiuUser.phoneNumber);
+    final String? number = Formatters.removeParaenthesisFromNumber(
+        tiutiuUserController.tiutiuUser.phoneNumber);
     final String? countryCode = tiutiuUserController.tiutiuUser.countryCode;
 
     return Scaffold(
@@ -110,7 +113,9 @@ class _VerifyPhoneState extends State<VerifyPhone> {
           AnimatedContainer(
             duration: Duration(milliseconds: 500),
             child: Icon(
-              authController.numberVerified ? Icons.verified_user : FontAwesomeIcons.whatsapp,
+              authController.numberVerified
+                  ? Icons.verified_user
+                  : FontAwesomeIcons.whatsapp.data,
               size: authController.numberVerified ? 96.0.h : 64.0.h,
               color: AppColors.primary,
             ),
@@ -142,7 +147,8 @@ class _VerifyPhoneState extends State<VerifyPhone> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.tips_and_updates, size: 10.0.h, color: AppColors.secondary),
+                    Icon(Icons.tips_and_updates,
+                        size: 10.0.h, color: AppColors.secondary),
                     SizedBox(width: 4.0.w),
                     AutoSizeTexts.autoSizeText14(
                       AppLocalizations.of(context)!.friendlyReminderToAdd9Digit,
@@ -202,7 +208,8 @@ class _VerifyPhoneState extends State<VerifyPhone> {
       opacity: authController.numberVerified ? 0 : 1,
       duration: Duration(milliseconds: 500),
       child: Visibility(
-        visible: !authController.numberVerified && authController.isWhatsappTokenValid,
+        visible: !authController.numberVerified &&
+            authController.isWhatsappTokenValid,
         child: Padding(
           child: InsertCodeBoxes(
             onCompleted: (v) {
@@ -306,7 +313,9 @@ class _VerifyPhoneState extends State<VerifyPhone> {
             visible: !authController.numberVerified,
             child: ButtonWide(
               onPressed: () {
-                authController.whatsAppCodeIsValid(codeController.text).then((valid) {
+                authController
+                    .whatsAppCodeIsValid(codeController.text)
+                    .then((valid) {
                   if (!valid) {
                     systemController.snackBarIsOpen = true;
                     ScaffoldMessenger.of(context)
@@ -317,7 +326,8 @@ class _VerifyPhoneState extends State<VerifyPhone> {
                           ),
                         )
                         .closed
-                        .then((value) => systemController.snackBarIsOpen = false);
+                        .then(
+                            (value) => systemController.snackBarIsOpen = false);
                     codeController.clear();
                     setState(() {
                       hasError = true;
