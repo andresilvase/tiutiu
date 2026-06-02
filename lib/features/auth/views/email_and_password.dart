@@ -42,41 +42,43 @@ class _EmailAndPasswordState extends State<EmailAndPassword> with TiuTiuPopUp {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.black.withAlpha(100),
-      body: Stack(
-        children: [
-          ImageCarouselBackground(),
-          Blur(),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Obx(
-              () => Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 32.0.h),
-                    TiutiuLogo(),
-                    Spacer(),
-                    _createAccountHeadline(),
-                    _doLoginHeadline(),
-                    _resetPasswordHeadline(),
-                    SizedBox(height: 16.0.h),
-                    _emailInput(),
-                    _passwordInput(),
-                    _repeatPasswordInput(),
-                    _resetPasswordWidget(),
-                    Spacer(),
-                    _createAccountTip(),
-                    _submitButton(context),
-                    _SimpleTextButton(),
-                    SizedBox(height: 8.0.h),
-                  ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            ImageCarouselBackground(),
+            Blur(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Obx(
+                () => Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 32.0.h),
+                      TiutiuLogo(),
+                      Spacer(),
+                      _createAccountHeadline(),
+                      _doLoginHeadline(),
+                      _resetPasswordHeadline(),
+                      SizedBox(height: 16.0.h),
+                      _emailInput(),
+                      _passwordInput(),
+                      _repeatPasswordInput(),
+                      _resetPasswordWidget(),
+                      Spacer(),
+                      _createAccountTip(),
+                      _submitButton(context),
+                      _SimpleTextButton(),
+                      SizedBox(height: 8.0.h),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          _loadingWidget()
-        ],
+            _loadingWidget()
+          ],
+        ),
       ),
     );
   }

@@ -21,26 +21,28 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          _backgroundImage(),
-          _gradient(),
-          _appLogo(),
-          _adoptionForm(context),
-          Positioned(
-            bottom: 24.0.h,
-            left: 8.0,
-            right: 8.0,
-            child: Column(
-              children: [
-                _headline(context),
-                SizedBox(height: 16.0.h),
-                _authButtons(context),
-              ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            _backgroundImage(),
+            _gradient(),
+            _appLogo(),
+            _adoptionForm(context),
+            Positioned(
+              bottom: MediaQuery.of(context).viewInsets.bottom + 56.0.h,
+              left: 8.0,
+              right: 8.0,
+              child: Column(
+                children: [
+                  _headline(context),
+                  SizedBox(height: 16.0.h),
+                  _authButtons(context),
+                ],
+              ),
             ),
-          ),
-          _loadingWidget(context),
-        ],
+            _loadingWidget(context),
+          ],
+        ),
       ),
     );
   }
@@ -298,8 +300,7 @@ class AuthHosters extends StatelessWidget with TiuTiuPopUp {
 
   void goToHome() {
     final bottomIndex = homeController.bottomBarIndex;
-    if (kDebugMode)
-      debugPrint('TiuTiuApp: Bottom Index == 0? ${bottomIndex == 0}');
+    if (kDebugMode) debugPrint('TiuTiuApp: Bottom Index == 0? ${bottomIndex == 0}');
 
     if (systemController.properties.internetConnected) {
       Get.offAndToNamed(Routes.home);

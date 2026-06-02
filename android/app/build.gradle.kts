@@ -45,18 +45,33 @@ android {
         versionName = flutter.versionName
 
         // Init Codemagic Vars
-        resValue("string", "google_ads_app_id", "\"${System.getenv("GOOGLE_ADS_APPLICATION_ID")}\"")
-        resValue("string", "facebook_client_token", "\"${System.getenv("FACEBOOK_CLIENT_TOKEN")}\"")
-        resValue("string", "facebook_app_id", "\"${System.getenv("FACEBOOK_APP_ID")}\"")
+        System.getenv("GOOGLE_ADS_APPLICATION_ID")?.takeIf { it.isNotEmpty() }?.let {
+            resValue("string", "google_ads_app_id", "\"$it\"")
+        }
+        System.getenv("FACEBOOK_CLIENT_TOKEN")?.takeIf { it.isNotEmpty() }?.let {
+            resValue("string", "facebook_client_token", "\"$it\"")
+        }
+        System.getenv("FACEBOOK_APP_ID")?.takeIf { it.isNotEmpty() }?.let {
+            resValue("string", "facebook_app_id", "\"$it\"")
+        }
         // End Codemagic Vars
+
+        resValue("string", "app_name", "\"Tiu, tiu\"")
     }
 
     signingConfigs {
         create("release") {
-            keyAlias = keystoreProperties["keyAlias"]?.toString()
-            keyPassword = keystoreProperties["keyPassword"]?.toString()
-            storeFile = keystoreProperties["storeFile"]?.toString()?.let { file(it) }
-            storePassword = keystoreProperties["storePassword"]?.toString()
+            if (!System.getenv("CI").isNullOrEmpty()) {
+                storeFile = System.getenv("CM_KEYSTORE_PATH")?.let { file(it) }
+                storePassword = System.getenv("CM_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("CM_KEY_ALIAS")
+                keyPassword = System.getenv("CM_KEY_PASSWORD")
+            } else {
+                keyAlias = keystoreProperties["keyAlias"]?.toString()
+                keyPassword = keystoreProperties["keyPassword"]?.toString()
+                storeFile = keystoreProperties["storeFile"]?.toString()?.let { file(it) }
+                storePassword = keystoreProperties["storePassword"]?.toString()
+            }
         }
     }
 
@@ -75,4 +90,5 @@ flutter {
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.2")
+    implementation("com.facebook.android:facebook-android-sdk:[8,9)")
 }
